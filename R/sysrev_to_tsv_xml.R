@@ -1,3 +1,14 @@
+#' Converts sysrev file into SBtab and SBML file
+#'
+#' @param pid
+#' @param aid
+#' @param token
+#' @param documentname Output document name
+#'
+#' @return Two .rds files, SBtab and SBML
+#' @export
+#'
+#' @examples
 sysrev_to_tsv_xml <- function(pid, aid, token, documentname){
   # Source sysrev project
   sbtabfile <- list_answers_unnested(pid, aid, "aid", token)

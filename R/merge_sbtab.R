@@ -1,8 +1,13 @@
-# Function to merge multiple SBtab files into seperate compartments, edges and reaction dataframes
-## filelist is a list of filepaths to TSV formatted SBtabs to merge
-## outputname is a string which each merged file begins with
-## outputdir is the output folder for the merged file
-
+#' Merge multiple SBtab files into seperate compartments, edges and reaction dataframes
+#'
+#' @param filelist A list of filepaths to TSV formatted SBtabs to merge
+#' @param outputname A string which each merged file begins with
+#' @param outputdir The output folder for the merged file
+#'
+#' @return .rds file inside output directory
+#' @export
+#'
+#' @examples
 merge.sbtab <- function(filelist, outputname, outputdir) {
   dir.create(file.path(outputdir, "merging"), showWarnings = FALSE)
   tempdir <- paste0(outputdir, "/merging")
@@ -57,14 +62,3 @@ merge.sbtab <- function(filelist, outputname, outputdir) {
   # Delete temporary files
   unlink(tempdir, recursive = TRUE, force = TRUE)
 }
-
-# Trying it out
-merge.sbtab(c("SBtab_examples/physmap6.tsv", "SBtab_examples/physmap7.tsv"), "merged67", "data/merged")
-merge.sbtab(c("SBtab_examples/physmap7.tsv", "SBtab_examples/physmap8.tsv", "SBtab_examples/physmap9.tsv"), "merged789", "data/merged")
-merge.sbtab(c("SBtab_examples/physmap6.tsv",
-              "SBtab_examples/physmap7.tsv",
-              "SBtab_examples/physmap8.tsv",
-              "SBtab_examples/physmap9.tsv",
-              "SBtab_examples/physmap10.tsv"), "merged678910", "data/merged")
-
-# It works! :D
