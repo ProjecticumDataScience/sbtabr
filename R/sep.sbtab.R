@@ -1,4 +1,4 @@
-#' sep.sbtab
+#' Seperate SBtab files into seperate dataframes per table
 #'
 #' @param fname A tsv file path
 #' @param oname The outputname
