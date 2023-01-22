@@ -15,6 +15,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom tidyr separate_rows
 #' @importFrom tidyr drop_na
+#' @importFrom tidyselect where
 #'
 #' @examples
 #' sep.sbtab("SBtab_examples/physmap7.tsv", "physmap7", "data")

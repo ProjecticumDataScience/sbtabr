@@ -2,7 +2,7 @@
 % Please edit documentation in R/merge_sbtab.R
 \name{merge.sbtab}
 \alias{merge.sbtab}
-\title{Merge multiple SBtab files into seperate compartments, edges and reaction dataframes}
+\title{merge.sbtab}
 \usage{
 \method{merge}{sbtab}(filelist, outputname, outputdir)
 }
@@ -17,7 +17,7 @@
 .rds file inside output directory
 }
 \description{
-Merge multiple SBtab files into seperate compartments, edges and reaction dataframes
+merge.sbtab
 }
 \examples{
 merge.sbtab(c("SBtab_examples/physmap6.tsv", "SBtab_examples/physmap7.tsv"), "merged67", "data/merged")

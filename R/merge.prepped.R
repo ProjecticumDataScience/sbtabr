@@ -1,18 +1,18 @@
-
-#' Merge prepped SBtab dataframes made with SBtab_to_dfs() and premerge()
+#' Merge prepped SBtab dataframes made with sep.sbtab() and prep.merge()
 #'
-#' @param fls A list of prepped files to merge (all have to be the same type!)
+#' @param fls A list of prepped files to merge (all have to be the same type! i.e. reactions, edges, etc.)
 #' @param oname The outputname of the merged file
-#' @param odir The (already existing) outputfolder
+#' @param odir The outputfolder
 #'
-#' @return A .rds file
+#' @return A .rds file containing the merged dataframes
 #' @export
+#' @importFrom dplyr bind_rows
+#' @importFrom utils read.table
 #'
 #' @examples
 #'merge.prepped(edgeslist, "phys67_edges", "data/merged")
 #'
 #'merge.prepped(reactionslist, "phys6789_reactions", "data/merged")
-
 merge.prepped <- function(fls, oname, odir = getwd()) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)
