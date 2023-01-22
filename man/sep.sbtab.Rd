@@ -2,7 +2,7 @@
 % Please edit documentation in R/sep.sbtab.R
 \name{sep.sbtab}
 \alias{sep.sbtab}
-\title{sep.sbtab}
+\title{Seperate SBtab files into seperate dataframes per table}
 \usage{
 sep.sbtab(fname, oname, odir = getwd(), colnum = 25)
 }
@@ -19,10 +19,10 @@ sep.sbtab(fname, oname, odir = getwd(), colnum = 25)
 Seperates SBtab files into reactions, species and compounds, also saves a dataframe with full infoormation.
 }
 \description{
-sep.sbtab
+Seperate SBtab files into seperate dataframes per table
 }
 \examples{
-sep.sbtab("SBtab_examples/physmap7.tsv", "physmap7", "data")
+sep.sbtab("data-raw/physmap7.tsv", "physmap7", "data")
 
-sep.sbtab("SBtab_examples/physmap10.tsv", "physmap10", "data")
+sep.sbtab("data-raw/physmap10.tsv", "physmap10", "data")
 }

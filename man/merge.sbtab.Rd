@@ -2,7 +2,7 @@
 % Please edit documentation in R/merge.sbtab.R
 \name{merge.sbtab}
 \alias{merge.sbtab}
-\title{merge.sbtab}
+\title{Merge multiple SBtab files into seperate dataframes per table type}
 \usage{
 \method{merge}{sbtab}(filelist, outputname, outputdir)
 }
@@ -17,16 +17,13 @@
 .rds file inside output directory
 }
 \description{
-merge.sbtab
+Merge multiple SBtab files into seperate dataframes per table type
 }
 \examples{
-merge.sbtab(c("SBtab_examples/physmap6.tsv",
-"SBtab_examples/physmap7.tsv"),
-"merged67", "data/merged")
+merge.sbtab(c("data-raw/physmap6.tsv", "data-raw/physmap7.tsv"), "merged_physmap67", "data/merged")
 
-merge.sbtab(c("SBtab_examples/physmap6.tsv",
-"SBtab_examples/physmap7.tsv",
-"SBtab_examples/physmap8.tsv",
-"SBtab_examples/physmap9.tsv",
-"SBtab_examples/physmap10.tsv"), "merged678910", "data/merged")
+merge.sbtab(c("data-raw/physmap6.tsv",
+"data-raw/physmap7.tsv",
+"data-raw/physmap8.tsv",
+"data-raw/physmap9.tsv"), "merged_physmap6789", "data/merged")
 }
