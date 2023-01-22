@@ -1,4 +1,4 @@
-#' merge.sbtab
+#' Merge multiple SBtab files into seperate dataframes per table type
 #'
 #' @param filelist A list of filepaths to TSV formatted SBtabs to merge
 #' @param outputname A string which each merged file begins with
@@ -6,6 +6,7 @@
 #'
 #' @return .rds file inside output directory
 #' @export
+#'
 #' @import stringr
 #'
 #' @examples
