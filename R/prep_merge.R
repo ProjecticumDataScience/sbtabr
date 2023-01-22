@@ -11,16 +11,16 @@
 #' @export
 #'
 #' @examples
-#' prep.merge("data/compartments/physmap8_compartments.rds",
+#' prep_merge("data/compartments/physmap8_compartments.rds",
 #' "physmap8", "data/compartments")
-#' prep.merge("data/edges/physmap8_edges.rds", "physmap8",
+#' prep_merge("data/edges/physmap8_edges.rds", "physmap8",
 #' "data/edges", edgesdata = TRUE)
-#' prep.merge("data/reactions/physmap8_reactions.rds", "physmap8",
+#' prep_merge("data/reactions/physmap8_reactions.rds", "physmap8",
 #' "data/reactions", reactionsdata = TRUE)
-#' prep.merge("data/species/physmap8_species.rds", "physmap8",
+#' prep_merge("data/species/physmap8_species.rds", "physmap8",
 #' "data/species", speciesdata = TRUE)
 
-prep.merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
+prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)
 
