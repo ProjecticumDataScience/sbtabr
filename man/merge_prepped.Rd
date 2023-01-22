@@ -14,7 +14,7 @@ merge_prepped(fls, oname, odir = getwd())
 \item{odir}{The outputfolder}
 }
 \value{
-A .rds file containing the merged dataframes
+A .rds file containing the merged dataframes from that type
 }
 \description{
 Merge prepped SBtab dataframes made with sep.sbtab() and prep.merge()
