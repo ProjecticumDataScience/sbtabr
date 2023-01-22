@@ -20,7 +20,7 @@ The development version of PackageONTOX can be installed from
 devtools::install_github("ProjecticumDataScience/Package_ONTOX")
 ```
 
-# Functions
+# Contents
 
 The package currently contains the following functions:
 <ul>
@@ -60,14 +60,17 @@ function.](images/workflow_visual.jpg)
 
 The package also contains a variety of data files:
 
-## [Raw data](https://github.com/ProjecticumDataScience/PackageONTOX/data-raw)
+## [Raw data](https://github.com/ProjecticumDataScience/Package-ONTOX/data-raw)
 
 This consists of four SBtab files in the .tsv format. These have been
 provided by M. Teunis from University of Applied Sciences Utrecht and
 were a product of the SysRev platform. In figure 1 this would be the
 ‘SBtab files’ at the start of the process.
 
-## [Data](https://github.com/ProjecticumDataScience/PackageONTOX/data)
+The raw data folder also contains the R scripts used to create the
+following edited data files.
+
+## [Data](https://github.com/ProjecticumDataScience/Package-ONTOX/data)
 
 The data folder contains three types of files.
 
@@ -89,6 +92,8 @@ created with either the merge_prepped or merge_sbtab functions. In
 figure 1 these are the ‘SBtabs merged in 4 dataframes’. Aside from the
 files being the input and ouput for the merging functions, they are also
 used by the visualization functions as shown below.
+
+# Functions
 
 ## sep_sbtab
 
