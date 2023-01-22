@@ -4,7 +4,7 @@
 #' @param oname The outputname of the merged file
 #' @param odir The outputfolder
 #'
-#' @return A .rds file containing the merged dataframes
+#' @return A .rds file containing the merged dataframes from that type
 #' @export
 #'
 #' @importFrom dplyr bind_rows
