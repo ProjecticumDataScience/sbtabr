@@ -1,18 +1,4 @@
-# Eisen voor de SBtab
-## Tab seperated
-## Three tables (reaction, species and compartment)
-## Reaction ID's start with "re"
-## Compounds in the reaction table are divided in !Products, !Reactants (and !Modifiers)
-## Species ID's start with "s" followed by a number
-## Compartment ID's start with "c" followed by a number
-
-# Required libraries
-library(stringr)
-library(tidyverse)
-library(dplyr)
-
-# Function to read SBtab (TSV) into seperate dataframes
-#' Title
+#' sep.sbtab
 #'
 #' @param fname A tsv file path
 #' @param oname The outputname
@@ -21,6 +7,14 @@ library(dplyr)
 #'
 #' @return Seperates SBtab files into reactions, species and compounds, also saves a dataframe with full infoormation.
 #' @export
+#'
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select_if
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
+#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr separate_rows
+#' @importFrom tidyr drop_na
 #'
 #' @examples
 #' sep.sbtab("SBtab_examples/physmap7.tsv", "physmap7", "data")
