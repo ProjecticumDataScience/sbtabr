@@ -20,6 +20,8 @@ A .rds file containing the merged dataframes
 Merge prepped SBtab dataframes made with sep.sbtab() and prep.merge()
 }
 \examples{
-merge.prepped(c("data/edges/prepped_physmap6_edges.rds", "data/edges/prepped_physmap7_edges.rds"), "merged_physmap67_edges", "data/merged")
-merge.prepped(c("data/species/prepped_physmap6_species.rds", "data/species/prepped_physmap7_species.rds"), "merged_physmap67_species", "data/merged")
+merge.prepped(c("data/edges/prepped_physmap6_edges.rds", "data/edges/prepped_physmap7_edges.rds"),
+"merged_physmap67_edges", "data/merged")
+merge.prepped(c("data/species/prepped_physmap6_species.rds", "data/species/prepped_physmap7_species.rds"),
+"merged_physmap67_species", "data/merged")
 }
