@@ -14,7 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-# The ONTOX package for merging and visualizing SBtab files
+# Package ONTOX
+## For merging and visualizing SBtab files
 
 The functions within this package can be used to merge and visualize SBtab files as provided by the SysRev platform. It has originally been made as part of a Data Science project for the University of Applied Sciences in Utrecht.
 
@@ -24,7 +25,7 @@ The development version of PackageONTOX can be installed from [GitHub](https://g
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ProjecticumDataScience/PackageONTOX")
+devtools::install_github("ProjecticumDataScience/Package_ONTOX")
 ```
 
 # Functions
@@ -33,7 +34,8 @@ The package currently contains the following functions:
 <ul><li>Merging:<ul>
 <li>sep_sbtab</li>
 <li>prep_merge</li>
-<li>merge_prepped</li></ul>
+<li>merge_prepped</li>
+<li>merge_sbtab</li></ul>
 <li>visualizations:<ul>
 <li>net_graph</li>
 <li>merged_net_graph</li></ul></ul>
@@ -52,35 +54,19 @@ The package also contains a variety of data files:
 
 ## sep_sbtab
 
-blah blah
-
-```{r sep_sbtab explained, eval=FALSE}
-
-```
+To be added.
 
 ## prep_merge
 
-blah blah
-
-```{r prep_merge explained, eval=FALSE}
-
-```
+To be added.
 
 ## merge_prepped
 
-blah blah
-
-```{r merge_prepped explained, eval=FALSE}
-
-```
+To be added.
 
 ## merge_sbtab
 
-blah blah
-
-```{r merge_sbtab explained, eval=FALSE}
-
-```
+To be added.
 
 ## net_graph
 

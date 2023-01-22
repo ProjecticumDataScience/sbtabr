@@ -1,7 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# The ONTOX package for merging and visualizing SBtab files
+# Package ONTOX
+
+## For merging and visualizing SBtab files
 
 The functions within this package can be used to merge and visualize
 SBtab files as provided by the SysRev platform. It has originally been
@@ -15,7 +17,7 @@ The development version of PackageONTOX can be installed from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ProjecticumDataScience/PackageONTOX")
+devtools::install_github("ProjecticumDataScience/Package_ONTOX")
 ```
 
 # Functions
@@ -33,6 +35,9 @@ prep_merge
 </li>
 <li>
 merge_prepped
+</li>
+<li>
+merge_sbtab
 </li>
 </ul>
 <li>
@@ -77,19 +82,19 @@ shown below.
 
 ## sep_sbtab
 
-blah blah
+To be added.
 
 ## prep_merge
 
-blah blah
+To be added.
 
 ## merge_prepped
 
-blah blah
+To be added.
 
 ## merge_sbtab
 
-blah blah
+To be added.
 
 ## net_graph
 
