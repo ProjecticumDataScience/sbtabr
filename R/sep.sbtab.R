@@ -18,9 +18,9 @@
 #' @importFrom tidyselect where
 #'
 #' @examples
-#' sep.sbtab("SBtab_examples/physmap7.tsv", "physmap7", "data")
+#' sep.sbtab("data-raw/physmap7.tsv", "physmap7", "data")
 #'
-#' sep.sbtab("SBtab_examples/physmap10.tsv", "physmap10", "data")
+#' sep.sbtab("data-raw/physmap10.tsv", "physmap10", "data")
 sep.sbtab <-
   function(fname, oname, odir = getwd(), colnum = 25) { # fname is a tsv file path, oname is the outputname, colnum is the ncol of the widest df
 
