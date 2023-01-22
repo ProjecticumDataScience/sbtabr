@@ -1,0 +1,125 @@
+!!!SBtab Document="test1"
+!!SBtab TableID="t_Reaction" SBtabVersion="1.0" Document="test1" TableType="Reaction" TableName="Reaction"
+!ID	!Name	!Type	!IsReversible	!Reactants	!Products	!Modifiers	!ModifierType	!Regulator	!Location	!KineticLaw	!SBOTerm
+re1		STATE_TRANSITION	FALSE	s2	s1	s3					
+re2		TRANSLATION	FALSE	s4	s5	s1					
+re1		REACTION	FALSE	s1	s4				c1		
+re2		REACTION	TRUE	s2	s3	s4			c1		
+re3		REACTION	TRUE	s5	s6	s1			c2		
+re4		REACTION	TRUE	s36	s11	s1			c2		
+re5		REACTION	TRUE	s7	s8	s3			c2		
+re6		REACTION	TRUE	s9	s10	s3, s6			c2		
+re7		REACTION	TRUE	s14	s15	s3, s6			c2		
+re8		REACTION	TRUE	s16	s17	s3, s6			c2		
+re9		REACTION	TRUE	s18	s19	s3			c2		
+re10		REACTION	TRUE	s12	s13	s11			c3		
+re11		REACTION	TRUE	s20	s21	s10			c3		
+re12		REACTION	TRUE	s22	s23	s17			c3		
+re13		REACTION	TRUE	s24	s25	s19			c3		
+re14		REACTION	TRUE	s26	s27	s8			c4		
+re15		REACTION	TRUE	s28	s29	s15			c4		
+re16		TRANSPORT	FALSE	s3	s49	s4			c2		
+re17		TRANSPORT	FALSE	s44	s43	s27			c1		
+re18		TRANSPORT	TRUE	s34	s33	s29			c1		
+re19		TRANSPORT	FALSE	s30	s32	s13			c6		
+re20		TRANSPORT	FALSE	s33	s35	s21			c6		
+re21		TRANSPORT	FALSE	s36	s39	s23			c6		
+re22		TRANSPORT	FALSE	s40	s42	s25			c6		
+re23		TRANSPORT	FALSE	s43	s45	s25			c6		
+re24		TRANSPORT	FALSE	s46	s48	s25			c6		
+re1		STATE_TRANSITION	FALSE	s1	s2	s3					
+re1		STATE_TRANSITION	FALSE	s2	s1	s3					
+re2		STATE_TRANSITION	FALSE	s5	s2	s4					
+re3		STATE_TRANSITION	FALSE	s2	s5	s6					
+re4		TRANSLATION	FALSE	s7	s4	s1					
+re5		TRANSLATION	FALSE	s8	s6	s1					
+re6		TRANSPORT	FALSE	s9	s5	s10					
+re7		TRANSLATION	FALSE	s11	s3	s1					
+											
+
+!!SBtab TableID="t_Species" SBtabVersion="1.0" Document="test1" TableType="Species" TableName="Species"
+!ID	!Name	!Type	!PositionToCompartment	!InitialValue	!Unit	!Location	!IsConstant	!InitialConcentration	!HasOnlySubstanceUnits	!SBOTerm	!Resolver	!Identifiers:ec-code	!Identifiers:uniprot	!Identifiers:kegg.compound	!Identifiers:obo.chebi	!Identifiers:kegg.orthology
+s1	ATRA	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:15367					
+s2	Retinaldehyde	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:17898					
+s3	RALDH2	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O94788					
+s4	CYP26A1_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000095596					
+s5	CYP26A1	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O43174					
+s1	Clav	SIMPLE_MOLECULE			mM	c1	NA	1.1			chembl.compound:CHEMBL777					
+s2	NRF2.L	PROTEIN		Inactivated		c1	NA				chembl					
+s3	NRF2.H	PROTEIN		Activated		c1	NA				chembl					
+s4	ROS	SIMPLE_MOLECULE				c1	NA				chembl					
+s5	FXR.H	PROTEIN		Activated		c2	NA				chembl					
+s6	FXR.L	PROTEIN		Inactivated		c2	NA				chembl					
+s7	NTCP.A	GENE		Activated		c2	NA				chembl					
+s8	NTCP.I	GENE		Inactivated		c2	NA				chembl					
+s9	BSEP.A	GENE		Activated		c2	NA				chembl					
+s10	BSEP.I	GENE		Inactivated		c2	NA				chembl					
+s36	MDR2.A	GENE		Activated		c2	NA				chembl					
+s11	MDR2.I	GENE		Inactivated		c2	NA				chembl					
+s12	MDR2.H	PROTEIN		High		c3	NA				chembl					
+s13	MDR2.:L	PROTEIN		Low		c3	NA				chembl					
+s14	OSTa.A	GENE		Activated		c2	NA				chembl					
+s15	OSTa.I	GENE		Inactivated		c2	NA				chembl					
+s16	ABCG5.A	GENE		Activated		c2	NA				chembl					
+s17	ABCG5.I	GENE		Inactivated		c2	NA				chembl					
+s18	MRP2.I	GENE		Inactivated		c2	NA				chembl					
+s19	MRP2.A	GENE		Activated		c2	NA				chembl					
+s20	BSEP.H	PROTEIN		High		c3	NA				chembl					
+s21	BSEP.L	PROTEIN		Low		c3	NA				chembl					
+s22	ABCG5.H	PROTEIN		High		c3	NA				chembl					
+s23	ABCG5.L	PROTEIN		Low		c3	NA				chembl					
+s24	MRP2.L	PROTEIN		Low		c3	NA				chembl					
+s25	MRP2.H	PROTEIN		High		c3	NA				chembl					
+s26	NTCP.H	PROTEIN		High		c4	NA				chembl					
+s27	NTCP.L	PROTEIN		Low		c4	NA				chembl					
+s28	OSTa.H	PROTEIN		High		c4	NA				chembl					
+s29	OSTa.L	PROTEIN		Low		c4	NA				chembl					
+s30	Phospholipids	SIMPLE_MOLECULE				c1	NA				chembl					
+s31	Phospholipids	SIMPLE_MOLECULE				c5	NA				chembl					
+s32	Phospholipids	SIMPLE_MOLECULE				c6	NA				chembl					
+s33	Bile acids	SIMPLE_MOLECULE				c1	NA				chembl					
+s34	Bile acids	SIMPLE_MOLECULE				c5	NA				chembl					
+s35	Bile acids	SIMPLE_MOLECULE				c6	NA				chembl					
+s36	Cholestetol	SIMPLE_MOLECULE				c1	NA				chembl					
+s38	Cholestetol	SIMPLE_MOLECULE				c5	NA				chembl					
+s39	Cholestetol	SIMPLE_MOLECULE				c6	NA				chembl					
+s40	Glutathione conjugates	SIMPLE_MOLECULE				c1	NA				chembl					
+s41	Glutathione conjugates	SIMPLE_MOLECULE				c5	NA				chembl					
+s42	Glutathione conjugates	SIMPLE_MOLECULE				c6	NA				chembl					
+s43	Bilirubin	SIMPLE_MOLECULE				c1	NA				chembl					
+s44	Bilirubin	SIMPLE_MOLECULE				c5	NA				chembl					
+s45	Bilirubin	SIMPLE_MOLECULE				c6	NA				chembl					
+s46	Oxidized glutathione 	SIMPLE_MOLECULE				c1	NA				chembl					
+s47	Oxidized glutathione 	SIMPLE_MOLECULE				c5	NA				chembl					
+s48	Oxidized glutathione 	SIMPLE_MOLECULE				c6	NA				chembl					
+s49	NRF2.H	PROTEIN		High		c2	NA				chembl					
+s1	ATRA	SIMPLE_MOLECULE		active		c1	FALSE	0.0	FALSE		CHEBI:15367					
+s2	ATRA_i	SIMPLE_MOLECULE		inactive		c1	FALSE	0.0	FALSE		CHEBI:134185					
+s3	CYP26A1	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O43174					
+s1	ATRA	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:15367					
+s2	Retinaldehyde	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:17898					
+s3	RALDH2	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O94788					
+s5	Vit.A	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:12777					
+s4	RDH10	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:Q8IZV5					
+s6	DHRS3	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O75911					
+s7	RDH10_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000121039					
+s8	DHRS3_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000162496					
+s9	Vit.A_e	SIMPLE_MOLECULE				c2	FALSE	0.0	FALSE		CHEBI:12777					
+s10	STRA6	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:Q9BX79					
+s11	RALDH2_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000128918					
+																
+
+!!SBtab TableID="t_Compartment" SBtabVersion="1.0" Document="test1" TableType="Compartment" TableName="Compartment"
+!ID	!Name	!OuterCompartment	!Size	!Unit
+c1	Mesoderm		1.0	volume
+c1	Cytosol			
+c2	Nucleus			
+c3	Plasma membrane			
+c4	Plasma membrane			
+c5	blood-serum			
+c6	bile canaliculi			
+c1	Mesoderm		1.0	volume
+c2	c2		1.0	volume
+c1	Mesoderm		1.0	volume
+				
+
