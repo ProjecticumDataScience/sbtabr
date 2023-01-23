@@ -41,7 +41,7 @@ merge_sbtab
 </li>
 </ul>
 <li>
-visualizations:
+Visualizations:
 <ul>
 <li>
 net_graph
@@ -95,6 +95,11 @@ used by the visualization functions as shown below.
 
 # Functions
 
+``` r
+
+library(PackageONTOX)
+```
+
 ## sep_sbtab
 
 To be added.
@@ -113,8 +118,29 @@ To be added.
 
 ## net_graph
 
-To be added.
+After separating the SBtab file into various parts, the edges, species
+and compartments list will be used to generate a network graph of a
+single file. The function alters the data as fitting and converts it
+into a object suitable for the graph. The graph is pre-set with a
+fitting lay-out, edges that direct which way the reaction is headed,
+nodes that are colored based on where they are found in the cell/body
+and names of the involved substances.
+
+``` r
+
+net_graph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
+```
 
 ## merged_net_graph
 
-To be added.
+This function is mostly similar to the net_graph function. The
+difference is that this function is used after merging multiple SBtab
+files. Therefore the edges, species and compartments lists of the merged
+files will be used to create a network graph of multiple files merged
+together. An addition to this function is that the shape of the nodes
+represent the original files.
+
+``` r
+
+merged_net_graph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
+```

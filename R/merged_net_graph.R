@@ -11,14 +11,14 @@
 #' @importFrom ggraph ggraph
 #'
 #' @examples
-#' netgraph("data/merged/merged_physmap67_edges.rds", "data/merged/merged_physmap67_species.rds", "data/merged/merged_physmap67_compartments.rds")
+#' merged_net_graph("data/merged/merged_physmap67_edges.rds", "data/merged/merged_physmap67_species.rds", "data/merged/merged_physmap67_compartments.rds")
 #'
-#' netgraph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
+#' merged_net_graph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
 merged_net_graph <- function(edge_list, species_list, compartments_list){
   # Function is for merged files, for unmerged files please use the net_graph function
 
   # Prepare data for ggraph object
-  species_list <- species_list[!duplicated(species_list$ID), ] # Correct uniqueness of links in list
+  species_list <- species_list[!duplicated(species_list[["ID"]]), ] # Correct uniqueness of links in list
   edge_list <- edge_list[!duplicated(edge_list[,c("Compounds", "Products")]), ] # Correct uniqueness of links in list
 
   # Create ggraph object
