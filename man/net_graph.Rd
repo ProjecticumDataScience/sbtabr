@@ -4,21 +4,23 @@
 \alias{net_graph}
 \title{Title}
 \usage{
-net_graph(edge_list, species_list)
+net_graph(edge_list, species_list, compartments_list)
 }
 \arguments{
-\item{edge_list}{A list for the lines between nodes}
+\item{edge_list}{the output file from the sep_sbtab function or an existing edge file}
 
-\item{species_list}{A list with the nodes}
+\item{species_list}{the output file from the sep_sbtab function or an existing species file}
+
+\item{compartments_list}{the output file from the sep_sbtab function or an existing compartments file}
 }
 \value{
-A graph with the nodes species_list connected by lines from edge_list
+A network graph for unmerged files
 }
 \description{
 Title
 }
 \examples{
-net_graph(physmap8_edges, physmap8_species)
+netgraph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
 
-net_graph(physmap9_edges, physmap9_species)
+netgraph("data/edges/physmap7_edges.rds", "data/species/physmap7_species.rds", "data/compartments/physmap7_compartments.rds")
 }

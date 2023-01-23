@@ -1,3 +1,19 @@
+#' Title
+#'
+#' @param edge_list the output file from the sep_sbtab function or an existing edge file
+#' @param species_list the output file from the sep_sbtab function or an existing species file
+#' @param compartments_list the output file from the sep_sbtab function or an existing compartments file
+#'
+#' @return A network graph for unmerged files
+#' @export
+#'
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom ggraph ggraph
+#'
+#' @examples
+#' netgraph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
+#'
+#' netgraph("data/edges/physmap7_edges.rds", "data/species/physmap7_species.rds", "data/compartments/physmap7_compartments.rds")
 net_graph <- function(edge_list, species_list, compartments_list){
   # Function is for unmerged files, for merged files please use the merged_net_graph function
 
@@ -6,7 +22,7 @@ net_graph <- function(edge_list, species_list, compartments_list){
   edge_list <- edge_list[!duplicated(edge_list[,c("Compounds", "Products")]), ] # Correct uniqueness of links in list
 
   # Create ggraph object
-  network <- graph_from_data_frame(d=edge_list, v=species_list, directed=T)
+  network <- graph_from_data_frame(d=edge_list, vertices=species_list, directed=T)
 
   # Plot network
   set.seed(123)
