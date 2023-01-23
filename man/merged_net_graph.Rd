@@ -20,7 +20,7 @@ A network graph for merged files
 Title
 }
 \examples{
-netgraph("data/merged/merged_physmap67_edges.rds", "data/merged/merged_physmap67_species.rds", "data/merged/merged_physmap67_compartments.rds")
+merged_net_graph("data/merged/merged_physmap67_edges.rds", "data/merged/merged_physmap67_species.rds", "data/merged/merged_physmap67_compartments.rds")
 
-netgraph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
+merged_net_graph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
 }
