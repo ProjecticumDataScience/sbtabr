@@ -1,10 +1,29 @@
-# Function to prepare SBtab dataframes made with sep.sbtab() for merging
-## fname is the file path of the file to be prepped
-## og is the identifier or name of the original file the file came from
-## odir is the outputdirectory
-## reactionsdata asks if the file contains reactions (i.e. multiple columns containing IDs)
+#' Prepare SBtab dataframes made with sep.sbtab() for merging
+#'
+#' @param fname The file path of the file to be prepped
+#' @param ogid The identifier or name of the original file the file came from
+#' @param odir The outputdirectory
+#' @param reactionsdata Asks if the file contains reactions (i.e. multiple columns containing IDs)
+#' @param edgesdata Asks if the file contains edges (i.e. multiple columns containing IDs)
+#' @param speciesdata Asks if the file contains species (i.e. multiple columns containing IDs)
+#'
+#' @return .rds files prepared for merging
+#' @export
+#'
+#' @examples
+#' prep_merge("data/compartments/physmap8_compartments.rds",
+#' "physmap8", "data/compartments")
+#' prep_merge("data/edges/physmap8_edges.rds", "physmap8",
+#' "data/edges", edgesdata = TRUE)
+#' prep_merge("data/reactions/physmap8_reactions.rds", "physmap8",
+#' "data/reactions", reactionsdata = TRUE)
+#' prep_merge("data/species/physmap8_species.rds", "physmap8",
+#' "data/species", speciesdata = TRUE)
 
-prep.merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE) {
+prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
+  # Create outputdirectory if it doesn't already exist
+  dir.create(file.path(getwd(), odir), showWarnings = FALSE)
+
   # Import the file and add a column with the original filename
   prepped <- readRDS(fname) %>% mutate(filename = ogid)
   prepped$ID <- paste0(prepped$ID, ".", ogid)
@@ -19,18 +38,9 @@ prep.merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edges
     prepped$Products <- paste0(prepped$Products, ".", ogid)
     prepped$Compounds <- paste0(prepped$Compounds, ".", ogid)
   }
+  # Species files also have id's in other columns
+  if (speciesdata == TRUE){
+    prepped$Location <- paste0(prepped$Location, ".", ogid)
+  }
   saveRDS(prepped, paste0(odir, "/prepped_", basename(fname)))
 }
-
-# Trying it out:
-prep.merge("data/compartments/physmap6_compartments.rds", "physmap6", "data/compartments")
-prep.merge("data/edges/physmap6_edges.rds", "physmap6", "data/edges", edgesdata = TRUE)
-prep.merge("data/reactions/physmap6_reactions.rds", "physmap6", "data/reactions", reactionsdata = TRUE)
-prep.merge("data/species/physmap6_species.rds", "physmap6", "data/species")
-
-prep.merge("data/compartments/physmap7_compartments.rds", "physmap7", "data/compartments")
-prep.merge("data/edges/physmap7_edges.rds", "physmap6", "data/edges", edgesdata = TRUE)
-prep.merge("data/reactions/physmap7_reactions.rds", "physmap7", "data/reactions", reactionsdata = TRUE)
-prep.merge("data/species/physmap7_species.rds", "physmap7", "data/species")
-
-# It works! :D

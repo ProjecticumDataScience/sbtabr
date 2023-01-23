@@ -1,0 +1,38 @@
+!!!SBtab Document="test1"
+!!SBtab TableID="t_Reaction" SBtabVersion="1.0" Document="test1" TableType="Reaction" TableName="Reaction"
+!ID	!Name	!Type	!IsReversible	!Reactants	!Products	!Modifiers	!ModifierType	!Regulator	!Location	!KineticLaw	!SBOTerm
+re1		STATE_TRANSITION	FALSE	s1	s2	s3					
+re1		STATE_TRANSITION	FALSE	s2	s1	s3					
+re2		STATE_TRANSITION	FALSE	s5	s2	s4					
+re3		STATE_TRANSITION	FALSE	s2	s5	s6					
+re4		TRANSLATION	FALSE	s7	s4	s1					
+re5		TRANSLATION	FALSE	s8	s6	s1					
+re6		TRANSPORT	FALSE	s9	s5	s10					
+re7		TRANSLATION	FALSE	s11	s3	s1					
+											
+
+!!SBtab TableID="t_Species" SBtabVersion="1.0" Document="test1" TableType="Species" TableName="Species"
+!ID	!Name	!Type	!PositionToCompartment	!InitialValue	!Unit	!Location	!IsConstant	!InitialConcentration	!HasOnlySubstanceUnits	!SBOTerm	!Resolver	!Identifiers:ec-code	!Identifiers:uniprot	!Identifiers:kegg.compound	!Identifiers:obo.chebi	!Identifiers:kegg.orthology
+s1	ATRA	SIMPLE_MOLECULE		active		c1	FALSE	0.0	FALSE		CHEBI:15367					
+s2	ATRA_i	SIMPLE_MOLECULE		inactive		c1	FALSE	0.0	FALSE		CHEBI:134185					
+s3	CYP26A1	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O43174					
+s1	ATRA	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:15367					
+s2	Retinaldehyde	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:17898					
+s3	RALDH2	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O94788					
+s5	Vit.A	SIMPLE_MOLECULE				c1	FALSE	0.0	FALSE		CHEBI:12777					
+s4	RDH10	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:Q8IZV5					
+s6	DHRS3	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:O75911					
+s7	RDH10_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000121039					
+s8	DHRS3_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000162496					
+s9	Vit.A_e	SIMPLE_MOLECULE				c2	FALSE	0.0	FALSE		CHEBI:12777					
+s10	STRA6	PROTEIN				c1	FALSE	0.0	FALSE		uniprot:Q9BX79					
+s11	RALDH2_g	GENE				c1	FALSE	0.0	FALSE		ensembl:ENSG00000128918					
+																
+
+!!SBtab TableID="t_Compartment" SBtabVersion="1.0" Document="test1" TableType="Compartment" TableName="Compartment"
+!ID	!Name	!OuterCompartment	!Size	!Unit
+c1	Mesoderm		1.0	volume
+c2	c2		1.0	volume
+c1	Mesoderm		1.0	volume
+				
+

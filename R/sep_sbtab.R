@@ -1,19 +1,31 @@
-# Eisen voor de SBtab
-## Tab seperated
-## Three tables (reaction, species and compartment)
-## Reaction ID's start with "re"
-## Compounds in the reaction table are divided in !Products, !Reactants (and !Modifiers)
-## Species ID's start with "s" followed by a number
-## Compartment ID's start with "c" followed by a number
-
-# Required libraries
-library(stringr)
-library(tidyverse)
-library(dplyr)
-
-# Function to read SBtab (TSV) into seperate dataframes
-sep.sbtab <-
+#' Seperate SBtab files into seperate dataframes per table
+#'
+#' @param fname A tsv file path
+#' @param oname The outputname
+#' @param odir The output directory
+#' @param colnum The number of columns of the widest dataframe
+#'
+#' @return Seperates SBtab files into reactions, species and compounds, also saves a dataframe with full infoormation.
+#' @export
+#'
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select_if
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
+#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr separate_rows
+#' @importFrom tidyr drop_na
+#' @importFrom tidyselect where
+#'
+#' @examples
+#' sep_sbtab("data-raw/physmap6.tsv", "physmap6", "data")
+#'
+#' sep_sbtab("data-raw/physmap7.tsv", "physmap7", "data")
+sep_sbtab <-
   function(fname, oname, odir = getwd(), colnum = 25) { # fname is a tsv file path, oname is the outputname, colnum is the ncol of the widest df
+
+    # Create outputdirectory if it doesn't already exist
+    dir.create(file.path(getwd(), odir), showWarnings = FALSE)
 
     # Input the tsv, use fill to create equal columns per row
     # Adding colnames to make sure the amount of columns is not just based on the first table
@@ -48,6 +60,8 @@ sep.sbtab <-
       edges <- pivot_longer(edges, cols = c(Modifiers, Reactants),
                             names_to = "Compound.Type", values_to = "Compounds")
     }
+    edges <- separate_rows(edges, Compounds, sep = ", ") # One observation per compound
+    edges <- drop_na(edges)
     edges <- edges[, c("Compounds", "Products", "ID")] # leave the row index blank to keep all rows
     dir.create(file.path(odir, "edges"), showWarnings = FALSE) # Create the directory
     saveRDS(edges, paste0(odir, "/edges/", oname, "_edges.rds")) # Save the file
@@ -69,12 +83,3 @@ sep.sbtab <-
     dir.create(file.path(odir, "compartments"), showWarnings = FALSE) # Create the directory
     saveRDS(compartments, paste0(odir, "/compartments/", oname, "_compartments.rds")) # Save the file
   }
-
-# Function executed with the examples:
-sep.sbtab("SBtab_examples/physmap6.tsv", "physmap6", "data")
-sep.sbtab("SBtab_examples/physmap7.tsv", "physmap7", "data")
-sep.sbtab("SBtab_examples/physmap8.tsv", "physmap8", "data")
-sep.sbtab("SBtab_examples/physmap9.tsv", "physmap9", "data")
-sep.sbtab("SBtab_examples/physmap10.tsv", "physmap10", "data")
-
-# Looks good! :D
