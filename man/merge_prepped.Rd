@@ -20,5 +20,6 @@ A .rds file containing the merged dataframes from that type
 Merge prepped SBtab dataframes made with sep_sbtab() and prep_merge()
 }
 \examples{
-merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 'merged_physmap67_reactions')
+merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions),
+'merged_physmap67_reactions')
 }
