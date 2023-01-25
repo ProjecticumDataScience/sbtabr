@@ -45,8 +45,21 @@ sep_sbtab <-
     colnames(reactions) <- columns[1,c(1:ncol(reactions))] # Add the colnames specific to this table
     reactions <- reactions %>% select(where(~ !all(is.na(.)))) # Get rid of empty columns
     colnames(reactions) <- substr(colnames(reactions), 2, nchar(columns)) # Get rid of the ! in columnnames
+    reactions <- distinct(reactions)
     dir.create(file.path(odir, "reactions"), showWarnings = FALSE) # Create the directory
     saveRDS(reactions, paste0(odir, "/reactions/", oname, "_reactions.rds")) # Save the file
+
+    # Create a separate object for the species table
+    # This object also functions as a nodes object for possible iGraph visualistions
+    species <- filter(sbtab, str_detect(X1, "^s[0-9]*")) # Take the species from the SBtab
+    colnames(species) <- columns[2,c(1:ncol(species))] # Add the colnames specific to the table
+    species <- species %>% select(where(~ !all(is.na(.)))) # Get rid of empty columns
+    colnames(species) <- substr(colnames(species), 2, nchar(columns)) # Get rid of the ! in columnnames
+    species <- species[,c(2,1,3:ncol(species))] # Reorder the columns
+    speciesnames <- species[,c(1,2)] # Take out names and ID's for later use
+    species <- distinct(species)
+    dir.create(file.path(odir, "species"), showWarnings = FALSE) # Create the directory
+    saveRDS(species, paste0(odir, "/species/", oname, "_species.rds")) # Save the file
 
     # For the edges, the compounds in the reactionformula need to be seperated
     edges <- reactions
@@ -63,23 +76,22 @@ sep_sbtab <-
     edges <- separate_rows(edges, Compounds, sep = ", ") # One observation per compound
     edges <- drop_na(edges)
     edges <- edges[, c("Compounds", "Products", "ID")] # leave the row index blank to keep all rows
+    # Adding compound names
+    edges <- edges %>% left_join(speciesnames, by=c('Compounds'='ID'))
+    colnames(edges)[colnames(edges) == "Name"] ="Compoundname"
+    # Adding product names
+    edges <- edges %>% left_join(speciesnames, by=c('Products'='ID'))
+    colnames(edges)[colnames(edges) == "Name"] ="Productname"
+    edges <- distinct(edges)
     dir.create(file.path(odir, "edges"), showWarnings = FALSE) # Create the directory
     saveRDS(edges, paste0(odir, "/edges/", oname, "_edges.rds")) # Save the file
-
-    # Create a separate object for the species table
-    # This object also functions as a nodes object for possible iGraph visualistions
-    species <- filter(sbtab, str_detect(X1, "^s[0-9]*")) # Take the species from the SBtab
-    colnames(species) <- columns[2,c(1:ncol(species))] # Add the colnames specific to the table
-    species <- species %>% select(where(~ !all(is.na(.)))) # Get rid of empty columns
-    colnames(species) <- substr(colnames(species), 2, nchar(columns)) # Get rid of the ! in columnnames
-    dir.create(file.path(odir, "species"), showWarnings = FALSE) # Create the directory
-    saveRDS(species, paste0(odir, "/species/", oname, "_species.rds")) # Save the file
 
     # Create a separate object for the compartments table
     compartments <- filter(sbtab, str_detect(X1, "^c[0-9]*")) # Take the compartments from the SBtab
     colnames(compartments) <- columns[3,c(1:ncol(compartments))] # Add the colnames specific to the table
     compartments <- compartments %>% select(where(~ !all(is.na(.)))) # Get rid of empty columns
     colnames(compartments) <- substr(colnames(compartments), 2, nchar(columns)) # Get rid of the ! in columnname
+    compartments <- distinct(compartments)
     dir.create(file.path(odir, "compartments"), showWarnings = FALSE) # Create the directory
     saveRDS(compartments, paste0(odir, "/compartments/", oname, "_compartments.rds")) # Save the file
   }
