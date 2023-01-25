@@ -11,7 +11,8 @@
 #' @importFrom utils read.table
 #'
 #' @examples
-#' merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 'merged_physmap67_reactions')
+#' merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions),
+#' 'merged_physmap67_reactions')
 merge_prepped <- function(fls, oname, odir = getwd()) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)
