@@ -4,7 +4,7 @@
 \alias{net_graph}
 \title{Title}
 \usage{
-net_graph(edge_list, species_list, compartments_list)
+net_graph(edge_file, species_file, compartments_file)
 }
 \arguments{
 \item{edge_list}{the output file from the sep_sbtab function or an existing edge file}

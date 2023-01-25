@@ -4,14 +4,14 @@
 \alias{merged_net_graph}
 \title{Title}
 \usage{
-merged_net_graph(edge_list, species_list, compartments_list)
+merged_net_graph(edge_file, species_file, compartments_file)
 }
 \arguments{
-\item{edge_list}{the output file from the merge_sbtab function or an existing edge file}
+\item{edge_file}{the output file from the merge_sbtab function or an existing edge file}
 
-\item{species_list}{the output file from the merge_sbtab function or an existing species file}
+\item{species_file}{the output file from the merge_sbtab function or an existing species file}
 
-\item{compartments_list}{the output file from the merge_sbtab function or an existing compartments file}
+\item{compartments_file}{the output file from the merge_sbtab function or an existing compartments file}
 }
 \value{
 A network graph for merged files
@@ -20,7 +20,7 @@ A network graph for merged files
 Title
 }
 \examples{
-merged_net_graph("data/merged/merged_physmap67_edges.rds", "data/merged/merged_physmap67_species.rds", "data/merged/merged_physmap67_compartments.rds")
+merged_net_graph("data/merged/merged67_edges.rds", "data/merged/merged67_species.rds", "data/merged/merged67_compartments.rds")
 
-merged_net_graph("data/merged/merged_physmap789_edges.rds", "data/merged/merged_physmap789_species.rds", "data/merged/merged_physmap789_compartments.rds")
+merged_net_graph("data/merged/merged789_edges.rds", "data/merged/merged789_species.rds", "data/merged/merged789_compartments.rds")
 }

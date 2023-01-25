@@ -14,8 +14,13 @@
 #' net_graph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
 #'
 #' net_graph("data/edges/physmap7_edges.rds", "data/species/physmap7_species.rds", "data/compartments/physmap7_compartments.rds")
-net_graph <- function(edge_list, species_list, compartments_list){
+net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for unmerged files, for merged files please use the merged_net_graph function
+
+  # Load files
+  edge_list <- readRDS(edge_file)
+  species_list <- readRDS(species_file)
+  compartments_list <- readRDS(compartments_file)
 
   # Prepare data for ggraph object
   species_list <- species_list[!duplicated(species_list[["ID"]]), ] # Correct uniqueness of links in list
