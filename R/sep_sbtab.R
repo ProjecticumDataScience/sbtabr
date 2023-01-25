@@ -16,11 +16,12 @@
 #' @importFrom tidyr separate_rows
 #' @importFrom tidyr drop_na
 #' @importFrom tidyselect where
+#' @importFrom dplyr distinct
+#' @importFrom dplyr left_join
 #'
 #' @examples
-#' sep_sbtab("data-raw/physmap6.tsv", "physmap6", "data")
-#'
-#' sep_sbtab("data-raw/physmap7.tsv", "physmap7", "data")
+#' sep_sbtab(physmap6, "physmap6")
+#' sep_sbtab(physmap7, "physmap7")
 sep_sbtab <-
   function(fname, oname, odir = getwd(), colnum = 25) { # fname is a tsv file path, oname is the outputname, colnum is the ncol of the widest df
 

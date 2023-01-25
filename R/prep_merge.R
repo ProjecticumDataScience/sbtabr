@@ -1,4 +1,4 @@
-#' Prepare SBtab dataframes made with sep.sbtab() for merging
+#' Prepare SBtab dataframes made with sep_sbtab for merging
 #'
 #' @param fname The file path of the file to be prepped
 #' @param ogid The identifier or name of the original file the file came from
@@ -11,15 +11,7 @@
 #' @export
 #'
 #' @examples
-#' prep_merge("data/compartments/physmap8_compartments.rds",
-#' "physmap8", "data/compartments")
-#' prep_merge("data/edges/physmap8_edges.rds", "physmap8",
-#' "data/edges", edgesdata = TRUE)
-#' prep_merge("data/reactions/physmap8_reactions.rds", "physmap8",
-#' "data/reactions", reactionsdata = TRUE)
-#' prep_merge("data/species/physmap8_species.rds", "physmap8",
-#' "data/species", speciesdata = TRUE)
-
+#' prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)
