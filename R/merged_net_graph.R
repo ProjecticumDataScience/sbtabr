@@ -7,14 +7,13 @@
 #' @return A network graph for merged files
 #' @export
 #'
-#' @importFrom igraph graph_from_data_frame
-#' @importFrom ggraph ggraph
+#' @import igraph
+#' @import ggraph
+#' @import ggplot2
 #' @importFrom vctrs vec_count
 #'
 #' @examples
-#' merged_net_graph("data/merged/merged67_edges.rds", "data/merged/merged67_species.rds", "data/merged/merged67_compartments.rds")
-#'
-#' merged_net_graph("data/merged/merged789_edges.rds", "data/merged/merged789_species.rds", "data/merged/merged789_compartments.rds")
+#' merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 merged_net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for merged files, for unmerged files please use the net_graph function
 
@@ -47,7 +46,7 @@ merged_net_graph <- function(edge_file, species_file, compartments_file){
     geom_node_point(aes(color = species_list$Location), size = species_list$count*2) +
     scale_colour_discrete(name = "Substance location", labels = compartments_list$Name) +
     geom_node_text(aes(label = species_list$Name), repel = TRUE) +
-    scale_edge_width(range = c(0.5, 2), guide=FALSE) +
+    scale_edge_width(range = c(0.5, 2), guide="none") +
     scale_size(range = c(0.2, 8)) +
-    theme_graph()
+    theme_graph(base_family="sans")
 }

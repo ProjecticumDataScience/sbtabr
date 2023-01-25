@@ -1,19 +1,17 @@
-#' Title
+#' net_graph
 #'
-#' @param edge_list the output file from the sep_sbtab function or an existing edge file
-#' @param species_list the output file from the sep_sbtab function or an existing species file
-#' @param compartments_list the output file from the sep_sbtab function or an existing compartments file
+#' @param edge_file the output file from the sep_sbtab function or an existing edge file
+#' @param species_file the output file from the sep_sbtab function or an existing species file
+#' @param compartments_file the output file from the sep_sbtab function or an existing compartments file
 #'
 #' @return A network graph for unmerged files
 #' @export
 #'
-#' @importFrom igraph graph_from_data_frame
-#' @importFrom ggraph ggraph
+#' @import igraph
+#' @import ggraph
+#' @import ggplot2
 #'
 #' @examples
-#' net_graph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
-#'
-#' net_graph("data/edges/physmap7_edges.rds", "data/species/physmap7_species.rds", "data/compartments/physmap7_compartments.rds")
 net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for unmerged files, for merged files please use the merged_net_graph function
 
@@ -41,4 +39,5 @@ net_graph <- function(edge_file, species_file, compartments_file){
     scale_size(range = c(0.2, 8)) +
     scale_fill_discrete(labels = compartments_list$Name,
                         name = "Substance location")
+  theme_graph(base_family="sans")
 }
