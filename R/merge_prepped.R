@@ -11,10 +11,8 @@
 #' @importFrom utils read.table
 #'
 #' @examples
-#'merge_prepped(c("data/edges/prepped_physmap6_edges.rds", "data/edges/prepped_physmap7_edges.rds"),
-#'"merged_physmap67_edges", "data/merged")
-#'merge_prepped(c("data/species/prepped_physmap6_species.rds", "data/species/prepped_physmap7_species.rds"),
-#'"merged_physmap67_species", "data/merged")
+#'merge_prepped(c("data/edges/prepped_physmap6_edges.rds", "data/edges/prepped_physmap7_edges.rds"), "merged_physmap67_edges", "data/merged")
+#'merge_prepped(c("data/species/prepped_physmap6_species.rds", "data/species/prepped_physmap7_species.rds"), "merged_physmap67_species", "data/merged")
 merge_prepped <- function(fls, oname, odir = getwd()) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)

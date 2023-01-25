@@ -6,7 +6,6 @@ export(merged_net_graph)
 export(net_graph)
 export(prep_merge)
 export(sep_sbtab)
-export(sysrev_to_tsv_xml)
 import(stringr)
 importFrom(dplyr,bind_rows)
 importFrom(dplyr,filter)
@@ -20,8 +19,4 @@ importFrom(tidyr,pivot_longer)
 importFrom(tidyr,separate_rows)
 importFrom(tidyselect,where)
 importFrom(utils,read.table)
-<<<<<<< HEAD
 importFrom(vctrs,vec_count)
-=======
-importFrom(vctors,vec_count)
->>>>>>> ee55efe7edca0767c182cb9812ccf814e542fec3
