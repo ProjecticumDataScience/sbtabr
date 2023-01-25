@@ -20,7 +20,5 @@ A network graph for merged files
 Title
 }
 \examples{
-merged_net_graph("data/merged/merged67_edges.rds", "data/merged/merged67_species.rds", "data/merged/merged67_compartments.rds")
-
-merged_net_graph("data/merged/merged789_edges.rds", "data/merged/merged789_species.rds", "data/merged/merged789_compartments.rds")
+merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 }

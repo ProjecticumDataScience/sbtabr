@@ -2,7 +2,7 @@
 % Please edit documentation in R/prep_merge.R
 \name{prep_merge}
 \alias{prep_merge}
-\title{Prepare SBtab dataframes made with sep.sbtab() for merging}
+\title{Prepare SBtab dataframes made with sep_sbtab for merging}
 \usage{
 prep_merge(
   fname,
@@ -30,15 +30,8 @@ prep_merge(
 .rds files prepared for merging
 }
 \description{
-Prepare SBtab dataframes made with sep.sbtab() for merging
+Prepare SBtab dataframes made with sep_sbtab for merging
 }
 \examples{
-prep_merge("data/compartments/physmap8_compartments.rds",
-"physmap8", "data/compartments")
-prep_merge("data/edges/physmap8_edges.rds", "physmap8",
-"data/edges", edgesdata = TRUE)
-prep_merge("data/reactions/physmap8_reactions.rds", "physmap8",
-"data/reactions", reactionsdata = TRUE)
-prep_merge("data/species/physmap8_species.rds", "physmap8",
-"data/species", speciesdata = TRUE)
+prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/merge_prepped.R
 \name{merge_prepped}
 \alias{merge_prepped}
-\title{Merge prepped SBtab dataframes made with sep.sbtab() and prep.merge()}
+\title{Merge prepped SBtab dataframes made with sep_sbtab() and prep_merge()}
 \usage{
 merge_prepped(fls, oname, odir = getwd())
 }
@@ -17,9 +17,8 @@ merge_prepped(fls, oname, odir = getwd())
 A .rds file containing the merged dataframes from that type
 }
 \description{
-Merge prepped SBtab dataframes made with sep.sbtab() and prep.merge()
+Merge prepped SBtab dataframes made with sep_sbtab() and prep_merge()
 }
 \examples{
-merge_prepped(c("data/edges/prepped_physmap6_edges.rds", "data/edges/prepped_physmap7_edges.rds"), "merged_physmap67_edges", "data/merged")
-merge_prepped(c("data/species/prepped_physmap6_species.rds", "data/species/prepped_physmap7_species.rds"), "merged_physmap67_species", "data/merged")
+merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 'merged_physmap67_reactions')
 }

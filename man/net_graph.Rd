@@ -2,25 +2,20 @@
 % Please edit documentation in R/net_graph.R
 \name{net_graph}
 \alias{net_graph}
-\title{Title}
+\title{net_graph}
 \usage{
 net_graph(edge_file, species_file, compartments_file)
 }
 \arguments{
-\item{edge_list}{the output file from the sep_sbtab function or an existing edge file}
+\item{edge_file}{the output file from the sep_sbtab function or an existing edge file}
 
-\item{species_list}{the output file from the sep_sbtab function or an existing species file}
+\item{species_file}{the output file from the sep_sbtab function or an existing species file}
 
-\item{compartments_list}{the output file from the sep_sbtab function or an existing compartments file}
+\item{compartments_file}{the output file from the sep_sbtab function or an existing compartments file}
 }
 \value{
 A network graph for unmerged files
 }
 \description{
-Title
-}
-\examples{
-net_graph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
-
-net_graph("data/edges/physmap7_edges.rds", "data/species/physmap7_species.rds", "data/compartments/physmap7_compartments.rds")
+net_graph
 }

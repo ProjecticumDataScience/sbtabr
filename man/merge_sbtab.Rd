@@ -4,7 +4,7 @@
 \alias{merge_sbtab}
 \title{Merge multiple SBtab files into seperate dataframes per table type}
 \usage{
-merge_sbtab(filelist, outputname, outputdir)
+merge_sbtab(filelist, outputname, outputdir = getwd())
 }
 \arguments{
 \item{filelist}{A list of filepaths to TSV formatted SBtabs to merge}
@@ -20,11 +20,5 @@ merge_sbtab(filelist, outputname, outputdir)
 Merge multiple SBtab files into seperate dataframes per table type
 }
 \examples{
-merge_sbtab(c("data-raw/physmap6.tsv", "data-raw/physmap7.tsv"),
-"merged_physmap67", "data/merged")
-
-merge_sbtab(c("data-raw/physmap6.tsv",
-"data-raw/physmap7.tsv",
-"data-raw/physmap8.tsv",
-"data-raw/physmap9.tsv"), "merged_physmap6789", "data/merged")
+merge_sbtab(c(physmap6, physmap7, physmap8, physmap9), 'merged_physmap6789')
 }

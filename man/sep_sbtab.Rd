@@ -22,7 +22,6 @@ Seperates SBtab files into reactions, species and compounds, also saves a datafr
 Seperate SBtab files into seperate dataframes per table
 }
 \examples{
-sep_sbtab("data-raw/physmap6.tsv", "physmap6", "data")
-
-sep_sbtab("data-raw/physmap7.tsv", "physmap7", "data")
+sep_sbtab(physmap6, "physmap6")
+sep_sbtab(physmap7, "physmap7")
 }
