@@ -128,7 +128,7 @@ and names of the involved substances.
 
 ``` r
 
-net_graph("data/edges/physmap6_edges.rds", "data/species/physmap6_species.rds", "data/compartments/physmap6_compartments.rds")
+net_graph("data/physmap6_edges.rds", "data/physmap6_species.rds", "data/physmap6_compartments.rds")
 ```
 
 ## merged_net_graph
