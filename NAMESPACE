@@ -20,4 +20,8 @@ importFrom(tidyr,pivot_longer)
 importFrom(tidyr,separate_rows)
 importFrom(tidyselect,where)
 importFrom(utils,read.table)
+<<<<<<< HEAD
 importFrom(vctrs,vec_count)
+=======
+importFrom(vctors,vec_count)
+>>>>>>> ee55efe7edca0767c182cb9812ccf814e542fec3
