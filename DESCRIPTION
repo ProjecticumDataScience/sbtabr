@@ -18,4 +18,5 @@ Imports:
     stringr,
     tidyr,
     tidyselect,
-    utils
+    utils,
+    vctrs
