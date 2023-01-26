@@ -13,7 +13,7 @@ The data frame has ... rows and ... columns:
 \item{ID}{Reaction ID}
 \item{Compoundname}{Compound name}
 \item{Productname}{Product name}
-\item{Productname}{Name of original file}
+\item{filename}{Name of original file}
 ...
 }
 }
