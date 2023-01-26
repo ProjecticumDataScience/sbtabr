@@ -101,19 +101,13 @@ merged_physmap67_compartments <- system.file("extdata",
 
 ## sep_sbtab
 
-To be added.
+The first function in the pipeline turns one SBtab file into separate dataframes. An SBtab file contains multiple tables for different components of a network. These include the species/compounds, reactions and locations. To work with the components they need to be separated. This is where sep_sbtab comes in. It creates four dataframes as .rds files, the full SBtab, the species, the locations, the reactions and the edges. The edges are a modified version of the reactions which is necessary for the visualizations later on. Each file is placed into a folder named after the component it described. 
 
-## prep_merge
+The inputs for the function consist of a filepath to the .tsv SBtab file and a string with the preferred outputname. An optional input is the outputdirectory as odir or the total amount of columns as colnum. An example of the function's use is shown below. 
 
-To be added.
-
-## merge_prepped
-
-To be added.
-
-## merge_sbtab
-
-To be added.
+```{r sep_sbtab example, eval=FALSE}
+sep_sbtab(physmap6, 'physmap6')
+```
 
 ## net_graph
 
@@ -121,6 +115,33 @@ After separating the SBtab file into various parts, the edges, species and compa
 
 ```{r net graph example}
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
+```
+
+## prep_merge
+
+In order to merge the dataframes from multiple SBtab files it is important to refer back to the original files. Not only for later reference but mostly to prevent ID's overlapping between files. An ID like 's1' could be given to a different compound in a different file. The function prep_merge must be used to prevent overlapping ID's when merging. It adds the original filename to each ID.
+
+The input options for this file consist of a filepath to the .rds file that needs to be prepped, a string with the preferred outputname and a logical value to state the type of data. For the last option the choice is between speciesdata, edgesdata or reactionsdata. The output is a new .rds file. The function can be used as shown below.
+
+```{r prep_merge example, eval=FALSE}
+prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
+```
+
+## merge_prepped
+
+After the SBtab has been seperated and the dataframes have been prepped for merging, they can be merged using merge_prepped. This function takes the prepped files and merges them into one. The inputoptions consist of a list of prepped .rds files to merge and a preferred outputname. An outputdirectory can be added using odir.
+
+```{r merge_prepped example, eval=FALSE}
+merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 
+              'merged_physmap67_reactions')
+```
+
+## merge_sbtab
+
+In order to go from SBtab files straight to the merged files, the merge_sbtab function combines sep_sbtab, prep_merge and merge_prepped into one function. The inputoptions are a list of .tsv SBtab files and a preferred outputname. An outputdirectory can be added using odir. 
+
+```{r merge_sbtab example, eval=FALSE}
+merge_sbtab(c(physmap6, physmap7), 'merged_physmap67')
 ```
 
 ## merged_net_graph
