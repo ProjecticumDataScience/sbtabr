@@ -56,7 +56,9 @@ Together they create a possible workflow as described in figure 1.
 
 ![Figure 1. The workflow and usage process of the seperate functions.
 Each function creates an output which can be used for another
-function.](man/figures/visual_workflow.jpg)
+function.](man/figures/visual_workflow.jpg) *Figure 1. The workflow and
+usage process of the seperate functions. Each function creates an output
+which can be used for another function.*
 
 The package also contains a variety of data files:
 
