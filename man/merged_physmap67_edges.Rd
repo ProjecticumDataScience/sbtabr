@@ -6,14 +6,14 @@
 \title{merged_physmap67_edges}
 \format{
 A file path to a .rds file containing a dataframe
-The data frame has ... rows and ... columns:
+The data frame has 41 rows and 6 columns:
 \describe{
 \item{Compounds}{Compound ID's}
 \item{Products}{Product ID's}
 \item{ID}{Reaction ID}
 \item{Compoundname}{Compound name}
 \item{Productname}{Product name}
-\item{Productname}{Name of original file}
+\item{filename}{Name of original file}
 ...
 }
 }

@@ -35,14 +35,16 @@
 #' Result of putting the physmap6.tsv file through sep_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 11 rows and 8 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{Name}{Name of the compound}
+#'   \item{ID}{Species ID}
+#'   \item{Type}{Type of species, i.e. protein or gene}
+#'   \item{Location}{Location ID as given in compartments file}
+#'   \item{IsConstant}{Logical value indicating constant status}
+#'   \item{InitialConcentration}{Optional value of concentration}
+#'   \item{HasOnlySubstanceUnits}{Logical value indicating substance units}
+#'   \item{Resolver}{Database ID's}
 #'   ...
 #' }
 #' @source <data-raw/physmap6.tsv>
@@ -53,14 +55,13 @@
 #' Result of putting the physmap6.tsv file through sep_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 14 rows and 5 columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
 #'   \item{ID}{Reaction ID}
 #'   \item{Compoundname}{Compound name}
 #'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap6.tsv>
@@ -71,14 +72,12 @@
 #' Result of putting the physmap6.tsv file through sep_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 2 rows and 4 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{ID}{Given compartment ID}
+#'   \item{Name}{Compartment name}
+#'   \item{Size}{Relative size of compartment}
+#'   \item{Unit}{Unit the size is based on}
 #'   ...
 #' }
 #' @source <data-raw/physmap6.tsv>
@@ -89,14 +88,15 @@
 #' Result of putting the physmap6.tsv file through sep_sbtab and prep_merge
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 7 rows and 7 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
 #'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{Type}{Type of reaction}
+#'   \item{IsReversible}{Logical value to indicate reversibility}
+#'   \item{Reactants}{Reactant ID's}
+#'   \item{Products}{Product ID's}
+#'   \item{Modifiers}{Modifier ID's}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap6.tsv>
@@ -107,14 +107,15 @@
 #' Result of putting the physmap7.tsv file through sep_sbtab and prep_merge
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 8 rows and 7 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
 #'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{Type}{Type of reaction}
+#'   \item{IsReversible}{Logical value to indicate reversibility}
+#'   \item{Reactants}{Reactant ID's}
+#'   \item{Products}{Product ID's}
+#'   \item{Modifiers}{Modifier ID's}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -125,14 +126,14 @@
 #' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 41 rows and 6 columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
 #'   \item{ID}{Reaction ID}
 #'   \item{Compoundname}{Compound name}
 #'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -143,14 +144,18 @@
 #' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 25 rows and 10 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{Name}{Name of the compound}
+#'   \item{ID}{Species ID}
+#'   \item{Type}{Type of species, i.e. protein or gene}
+#'   \item{Location}{Location ID as given in compartments file}
+#'   \item{IsConstant}{Logical value indicating constant status}
+#'   \item{InitialConcentration}{Optional value of concentration}
+#'   \item{HasOnlySubstanceUnits}{Logical value indicating substance units}
+#'   \item{Resolver}{Database ID's}
+#'   \item{filename}{Name of original file}
+#'   \item{InitialValue}{States active form}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -161,14 +166,13 @@
 #' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
 #' @format A file path to a .rds file containing a dataframe
-#' The data frame has ... rows and ... columns:
+#' The data frame has 4 rows and 5 columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{ID}{Given compartment ID}
+#'   \item{Name}{Compartment name}
+#'   \item{Size}{Relative size of compartment}
+#'   \item{Unit}{Unit the size is based on}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -186,7 +190,7 @@
 #'   \item{ID}{Reaction ID}
 #'   \item{Compoundname}{Compound name}
 #'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -199,12 +203,16 @@
 #' @format A file path to a .rds file containing a dataframe
 #' The data frame has ... rows and ... columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{Name}{Name of the compound}
+#'   \item{ID}{Species ID}
+#'   \item{Type}{Type of species, i.e. protein or gene}
+#'   \item{Location}{Location ID as given in compartments file}
+#'   \item{IsConstant}{Logical value indicating constant status}
+#'   \item{InitialConcentration}{Optional value of concentration}
+#'   \item{HasOnlySubstanceUnits}{Logical value indicating substance units}
+#'   \item{Resolver}{Database ID's}
+#'   \item{filename}{Name of original file}
+#'   \item{InitialValue}{States active form}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>
@@ -217,12 +225,11 @@
 #' @format A file path to a .rds file containing a dataframe
 #' The data frame has ... rows and ... columns:
 #' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   \item{Products}{Product ID's}
-#'   \item{ID}{Reaction ID}
-#'   \item{Compoundname}{Compound name}
-#'   \item{Productname}{Product name}
-#'   \item{Productname}{Name of original file}
+#'   \item{ID}{Given compartment ID}
+#'   \item{Name}{Compartment name}
+#'   \item{Size}{Relative size of compartment}
+#'   \item{Unit}{Unit the size is based on}
+#'   \item{filename}{Name of original file}
 #'   ...
 #' }
 #' @source <data-raw/physmap7.tsv>

@@ -6,14 +6,16 @@
 \title{physmap6_species}
 \format{
 A file path to a .rds file containing a dataframe
-The data frame has ... rows and ... columns:
+The data frame has 11 rows and 8 columns:
 \describe{
-\item{Compounds}{Compound ID's}
-\item{Products}{Product ID's}
-\item{ID}{Reaction ID}
-\item{Compoundname}{Compound name}
-\item{Productname}{Product name}
-\item{Productname}{Name of original file}
+\item{Name}{Name of the compound}
+\item{ID}{Species ID}
+\item{Type}{Type of species, i.e. protein or gene}
+\item{Location}{Location ID as given in compartments file}
+\item{IsConstant}{Logical value indicating constant status}
+\item{InitialConcentration}{Optional value of concentration}
+\item{HasOnlySubstanceUnits}{Logical value indicating substance units}
+\item{Resolver}{Database ID's}
 ...
 }
 }
