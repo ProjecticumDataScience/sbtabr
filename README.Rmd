@@ -52,7 +52,7 @@ All files used as examples are stored in inst/extdata/. This includes the follow
 <ul><li> 4 .tsv files containing the original SBtab's as provided by M. Teunis from University of Applied Sciences Utrecht.</li>
 <li> 3 .rds files starting with physmap6_*. These were acquired using the sep_sbtab function. </li>
 <li> 2 .rds files starting with prepped_*. These were acquired using the prep_merge function. </li>
-<li> 6 .rds files starting with merged_*. These were aquired using the merge_sbtab function. </li>
+<li> 6 .rds files starting with merged_*. These were aquired using the merge_sbtab function. </li></ul>
 
 Aside from the files being the input and ouput for the merging functions, they are also used by the visualization functions as shown below. The filepaths will be turned into values with the corresponding filename to keep the examples later on more clear.
 

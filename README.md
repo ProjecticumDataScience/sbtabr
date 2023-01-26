@@ -81,6 +81,7 @@ prep_merge function.
 6 .rds files starting with merged\_\*. These were aquired using the
 merge_sbtab function.
 </li>
+</ul>
 
 Aside from the files being the input and ouput for the merging
 functions, they are also used by the visualization functions as shown
