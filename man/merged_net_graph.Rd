@@ -2,7 +2,7 @@
 % Please edit documentation in R/merged_net_graph.R
 \name{merged_net_graph}
 \alias{merged_net_graph}
-\title{Title}
+\title{Visualize the merged files made with merge_sbtab}
 \usage{
 merged_net_graph(edge_file, species_file, compartments_file)
 }
@@ -17,7 +17,7 @@ merged_net_graph(edge_file, species_file, compartments_file)
 A network graph for merged files
 }
 \description{
-Title
+Visualize the merged files made with merge_sbtab
 }
 \examples{
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)

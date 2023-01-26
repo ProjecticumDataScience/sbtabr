@@ -2,7 +2,7 @@
 % Please edit documentation in R/net_graph.R
 \name{net_graph}
 \alias{net_graph}
-\title{net_graph}
+\title{Visualize a SBtab file made with sep_sbtab}
 \usage{
 net_graph(edge_file, species_file, compartments_file)
 }
@@ -17,5 +17,5 @@ net_graph(edge_file, species_file, compartments_file)
 A network graph for unmerged files
 }
 \description{
-net_graph
+Visualize a SBtab file made with sep_sbtab
 }

@@ -5,9 +5,8 @@
 \alias{prepped_physmap7_reactions}
 \title{prepped_physmap7_reactions}
 \format{
-\subsection{\code{prepped_physmap7_reactions}}{
-
-A data frame with 14 rows and 6 columns:
+A file path to a .rds file containing a dataframe
+The data frame has ... rows and ... columns:
 \describe{
 \item{Compounds}{Compound ID's}
 \item{Products}{Product ID's}
@@ -18,7 +17,6 @@ A data frame with 14 rows and 6 columns:
 ...
 }
 }
-}
 \source{
 <data-raw/physmap7.tsv>
 }
@@ -26,6 +24,6 @@ A data frame with 14 rows and 6 columns:
 prepped_physmap7_reactions
 }
 \description{
-Result of putting physmap7 through sep.sbtab and prep.merge
+Result of putting the physmap7.tsv file through sep_sbtab and prep_merge
 }
 \keyword{datasets}

@@ -5,9 +5,8 @@
 \alias{merged_physmap6789_compartments}
 \title{merged_physmap6789_compartments}
 \format{
-\subsection{\code{merged_physmap6789_compartments}}{
-
-A data frame with 14 rows and 6 columns:
+A file path to a .rds file containing a dataframe
+The data frame has ... rows and ... columns:
 \describe{
 \item{Compounds}{Compound ID's}
 \item{Products}{Product ID's}
@@ -18,7 +17,6 @@ A data frame with 14 rows and 6 columns:
 ...
 }
 }
-}
 \source{
 <data-raw/physmap7.tsv>
 }
@@ -26,6 +24,6 @@ A data frame with 14 rows and 6 columns:
 merged_physmap6789_compartments
 }
 \description{
-Result of putting physmap7 through sep.sbtab and prep.merge
+Result of putting physmap6, 7, 8 and 9 through merge_sbtab
 }
 \keyword{datasets}

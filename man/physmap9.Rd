@@ -5,14 +5,7 @@
 \alias{physmap9}
 \title{physmap9}
 \format{
-\subsection{\code{physmap9}}{
-
-A data frame with 14 rows and 6 columns:
-\describe{
-\item{Compounds}{Compound ID's}
-...
-}
-}
+A file path to a .tsv file containing an SBtab
 }
 \source{
 <data-raw/physmap9.tsv>
