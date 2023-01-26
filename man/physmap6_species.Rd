@@ -5,9 +5,8 @@
 \alias{physmap6_species}
 \title{physmap6_species}
 \format{
-\subsection{\code{physmap6_species}}{
-
-A data frame with 14 rows and 6 columns:
+A file path to a .rds file containing a dataframe
+The data frame has ... rows and ... columns:
 \describe{
 \item{Compounds}{Compound ID's}
 \item{Products}{Product ID's}
@@ -18,7 +17,6 @@ A data frame with 14 rows and 6 columns:
 ...
 }
 }
-}
 \source{
 <data-raw/physmap6.tsv>
 }
@@ -26,6 +24,6 @@ A data frame with 14 rows and 6 columns:
 physmap6_species
 }
 \description{
-Result of putting physmap6 through sep.sbtab and prep.merge
+Result of putting the physmap6.tsv file through sep_sbtab
 }
 \keyword{datasets}
