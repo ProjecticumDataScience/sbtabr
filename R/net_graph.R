@@ -35,7 +35,7 @@ net_graph <- function(edge_file, species_file, compartments_file){
 
   # Plot network
   set.seed(123)
-  ggraph(network, layout = "nicely") +
+  network <- ggraph(network, layout = "nicely") +
     geom_edge_link(aes(end_cap = circle(3, "mm")), edge_colour = "grey66",
                    arrow = arrow(angle = 20, length = unit(2, "mm"),
                                  ends = "last", type = "closed")) +
@@ -46,4 +46,5 @@ net_graph <- function(edge_file, species_file, compartments_file){
     scale_fill_discrete(labels = compartments_list$Name,
                         name = "Substance location")
   theme_graph(base_family="sans")
+  print(network)
 }
