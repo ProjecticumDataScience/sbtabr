@@ -2,12 +2,7 @@
 #'
 #' An original SBtab file as provided by the SysRev platform
 #'
-#' @format ## `physmap6`
-#' A data frame with 14 rows and 6 columns:
-#' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   ...
-#' }
+#' @format A file path to a .tsv file containing an SBtab
 #' @source <data-raw/physmap6.tsv>
 "physmap6"
 
@@ -15,12 +10,7 @@
 #'
 #' An original SBtab file as provided by the SysRev platform
 #'
-#' @format ## `physmap7`
-#' A data frame with 14 rows and 6 columns:
-#' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   ...
-#' }
+#' @format A file path to a .tsv file containing an SBtab
 #' @source <data-raw/physmap7.tsv>
 "physmap7"
 
@@ -28,12 +18,7 @@
 #'
 #' An original SBtab file as provided by the SysRev platform
 #'
-#' @format ## `physmap8`
-#' A data frame with 14 rows and 6 columns:
-#' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   ...
-#' }
+#' @format A file path to a .tsv file containing an SBtab
 #' @source <data-raw/physmap8.tsv>
 "physmap8"
 
@@ -41,21 +26,16 @@
 #'
 #' An original SBtab file as provided by the SysRev platform
 #'
-#' @format ## `physmap9`
-#' A data frame with 14 rows and 6 columns:
-#' \describe{
-#'   \item{Compounds}{Compound ID's}
-#'   ...
-#' }
+#' @format A file path to a .tsv file containing an SBtab
 #' @source <data-raw/physmap9.tsv>
 "physmap9"
 
 #' physmap6_species
 #'
-#' Result of putting physmap6 through sep.sbtab and prep.merge
+#' Result of putting the physmap6.tsv file through sep_sbtab
 #'
-#' @format ## `physmap6_species`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -70,10 +50,10 @@
 
 #' physmap6_edges
 #'
-#' Result of putting physmap6 through sep.sbtab and prep.merge
+#' Result of putting the physmap6.tsv file through sep_sbtab
 #'
-#' @format ## `physmap6_edges`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -88,10 +68,10 @@
 
 #' physmap6_compartments
 #'
-#' Result of putting physmap6 through sep.sbtab and prep.merge
+#' Result of putting the physmap6.tsv file through sep_sbtab
 #'
-#' @format ## `physmap6_compartments`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -106,10 +86,10 @@
 
 #' prepped_physmap6_reactions
 #'
-#' Result of putting physmap6 through sep.sbtab and prep.merge
+#' Result of putting the physmap6.tsv file through sep_sbtab and prep_merge
 #'
-#' @format ## `prepped_physmap6_reactions`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -124,10 +104,10 @@
 
 #' prepped_physmap7_reactions
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting the physmap7.tsv file through sep_sbtab and prep_merge
 #'
-#' @format ## `prepped_physmap7_reactions`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -142,10 +122,10 @@
 
 #' merged_physmap67_edges
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
-#' @format ## `merged_physmap67_edges`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -160,10 +140,10 @@
 
 #' merged_physmap67_species
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
-#' @format ## `merged_physmap67_species`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -178,10 +158,10 @@
 
 #' merged_physmap67_compartments
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6 and physmap7 through merge_sbtab
 #'
-#' @format ## `merged_physmap67_compartments`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -196,10 +176,10 @@
 
 #' merged_physmap6789_edges
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6, 7, 8 and 9 through merge_sbtab
 #'
-#' @format ## `merged_physmap6789_edges`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -214,10 +194,10 @@
 
 #' merged_physmap6789_species
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6, 7, 8 and 9 through merge_sbtab
 #'
-#' @format ## `merged_physmap6789_species`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
@@ -232,10 +212,10 @@
 
 #' merged_physmap6789_compartments
 #'
-#' Result of putting physmap7 through sep.sbtab and prep.merge
+#' Result of putting physmap6, 7, 8 and 9 through merge_sbtab
 #'
-#' @format ## `merged_physmap6789_compartments`
-#' A data frame with 14 rows and 6 columns:
+#' @format A file path to a .rds file containing a dataframe
+#' The data frame has ... rows and ... columns:
 #' \describe{
 #'   \item{Compounds}{Compound ID's}
 #'   \item{Products}{Product ID's}
