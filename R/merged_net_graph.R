@@ -11,6 +11,7 @@
 #' @import ggraph
 #' @import ggplot2
 #' @importFrom vctrs vec_count
+#' @importFrom dplyr left_join
 #'
 #' @examples
 #' merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
@@ -33,6 +34,7 @@ merged_net_graph <- function(edge_file, species_file, compartments_file){
 
   species_list <- species_list[!duplicated(species_list[["Name"]]), ] # Correct uniqueness of links in list
   edge_list <- edge_list[!duplicated(edge_list[,c("Compoundname", "Productname")]), ] # Correct uniqueness of links in list
+  compartments_list <- compartments_list[!duplicated(compartments_list[,c("Name")]), ]
 
   # Create ggraph object
   network <- graph_from_data_frame(d=edge_list, vertices=species_list, directed=T)
