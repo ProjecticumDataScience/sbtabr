@@ -22,6 +22,8 @@ Seperates SBtab files into reactions, species and compounds, also saves a datafr
 Seperate SBtab files into seperate dataframes per table
 }
 \examples{
+physmap6 <- system.file("extdata", "physmap6.tsv", package="PackageONTOX")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
 sep_sbtab(physmap6, "physmap6")
 sep_sbtab(physmap7, "physmap7")
 }

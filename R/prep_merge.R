@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
 #' prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
   # Create outputdirectory if it doesn't already exist

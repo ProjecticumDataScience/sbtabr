@@ -12,6 +12,9 @@
 #' @import ggplot2
 #'
 #' @examples
+#' physmap6_edges <- system.file("extdata", "physmap6_edges.rds", package="PackageONTOX")
+#' physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
+#' physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", package="PackageONTOX")
 #' net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for unmerged files, for merged files please use the merged_net_graph function
