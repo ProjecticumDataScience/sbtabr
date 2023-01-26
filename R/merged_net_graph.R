@@ -32,9 +32,9 @@ merged_net_graph <- function(edge_file, species_file, compartments_file){
   counts_species <- vec_count(species_list$Name) # Add frequency to data frame
   species_list <- species_list %>% left_join(counts_species, by=c('Name'='key'))
 
-  species_list <- species_list[!duplicated(species_list[["Name"]]), ] # Correct uniqueness of links in list
-  edge_list <- edge_list[!duplicated(edge_list[,c("Compoundname", "Productname")]), ] # Correct uniqueness of links in list
-  compartments_list <- compartments_list[!duplicated(compartments_list[,c("Name")]), ]
+  species_list <- species_list[!duplicated(species_list[["Name"]]), ] # Correct double values
+  edge_list <- edge_list[!duplicated(edge_list[,c("Compoundname", "Productname")]), ] # Correct double values
+  compartments_list <- compartments_list[!duplicated(compartments_list[,c("Name")]), ] # Correct double values
 
   # Create ggraph object
   network <- graph_from_data_frame(d=edge_list, vertices=species_list, directed=T)
@@ -48,7 +48,7 @@ merged_net_graph <- function(edge_file, species_file, compartments_file){
     geom_node_point(aes(color = species_list$Location), size = species_list$count*2) +
     scale_colour_discrete(name = "Substance location", labels = compartments_list$Name) +
     geom_node_text(aes(label = species_list$Name), repel = TRUE) +
-    scale_edge_width(range = c(0.5, 2), guide="none") +
+    scale_edge_width(range = c(0.5, 1.8), guide="none") +
     scale_size(range = c(0.2, 8)) +
     theme_graph(base_family="sans")
 }
