@@ -59,10 +59,31 @@ Aside from the files being the input and ouput for the merging functions, they a
 ```{r assigning filepaths}
 library(PackageONTOX)
 
+# Example files for sep_sbtab and merge_sbtab
+physmap6 <- system.file("extdata", "physmap6.tsv", package="PackageONTOX")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
+physmap8 <- system.file("extdata", "physmap8.tsv", package="PackageONTOX")
+physmap9 <- system.file("extdata", "physmap9.tsv", package="PackageONTOX")
+
+# Example files for prep_merge
+physmap6_species <- system.file("extdata", "physmap6_species.rds", 
+                                package="PackageONTOX")
+
+# Example files for merge_prepped
+prepped_physmap6_reactions <- system.file("extdata",
+                                          "prepped_physmap6_reactions.rds", 
+                                          package="PackageONTOX")
+prepped_physmap7_reactions <- system.file("extdata",
+                                          "prepped_physmap7_reactions.rds", 
+                                          package="PackageONTOX")
+
 # Example files for net_graph
-physmap6_edges <- system.file("extdata", "physmap6_edges.rds", package="PackageONTOX")
-physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
-physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", package="PackageONTOX")
+physmap6_edges <- system.file("extdata", "physmap6_edges.rds", 
+                              package="PackageONTOX")
+physmap6_species <- system.file("extdata", "physmap6_species.rds", 
+                                package="PackageONTOX")
+physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", 
+                                     package="PackageONTOX")
 
 # Example files for merged_net_graph
 merged_physmap67_edges <- system.file("extdata",
