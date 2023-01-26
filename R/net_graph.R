@@ -12,6 +12,7 @@
 #' @import ggplot2
 #'
 #' @examples
+#' net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for unmerged files, for merged files please use the merged_net_graph function
 
@@ -21,8 +22,10 @@ net_graph <- function(edge_file, species_file, compartments_file){
   compartments_list <- readRDS(compartments_file)
 
   # Prepare data for ggraph object
-  species_list <- species_list[!duplicated(species_list[["ID"]]), ] # Correct uniqueness of links in list
-  edge_list <- edge_list[!duplicated(edge_list[,c("Compounds", "Products")]), ] # Correct uniqueness of links in list
+  edge_list <- edge_list[,c(4,5,3)] # Only keep needed columns
+
+  species_list <- species_list[!duplicated(species_list[["ID"]]), ] # Correct double values
+  edge_list <- edge_list[!duplicated(edge_list[,c("Compoundname", "Productname")]), ] # Correct double values
 
   # Create ggraph object
   network <- graph_from_data_frame(d=edge_list, vertices=species_list, directed=T)
