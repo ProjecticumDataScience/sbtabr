@@ -1,4 +1,4 @@
-#' net_graph
+#' Visualize a SBtab file made with sep_sbtab
 #'
 #' @param edge_file the output file from the sep_sbtab function or an existing edge file
 #' @param species_file the output file from the sep_sbtab function or an existing species file

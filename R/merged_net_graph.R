@@ -1,4 +1,4 @@
-#' Title
+#' Visualize the merged files made with merge_sbtab
 #'
 #' @param edge_file the output file from the merge_sbtab function or an existing edge file
 #' @param species_file the output file from the merge_sbtab function or an existing species file
