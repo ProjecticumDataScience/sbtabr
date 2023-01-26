@@ -14,7 +14,14 @@
 #' @importFrom dplyr left_join
 #'
 #' @examples
-#' merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
+#' merged_physmap67_edges <- system.file("extdata",
+#' "merged_physmap67_edges.rds", package="PackageONTOX")
+#' merged_physmap67_species <- system.file("extdata",
+#' "merged_physmap67_species.rds", package="PackageONTOX")
+#' merged_physmap67_compartments <- system.file("extdata",
+#' "merged_physmap67_compartments.rds", package="PackageONTOX")
+#' merged_net_graph(merged_physmap67_edges, merged_physmap67_species,
+#' merged_physmap67_compartments)
 merged_net_graph <- function(edge_file, species_file, compartments_file){
   # Function is for merged files, for unmerged files please use the net_graph function
 

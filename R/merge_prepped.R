@@ -11,6 +11,10 @@
 #' @importFrom utils read.table
 #'
 #' @examples
+#' prepped_physmap6_reactions <- system.file("extdata",
+#' "prepped_physmap6_reactions.rds", package="PackageONTOX")
+#' prepped_physmap7_reactions <- system.file("extdata",
+#' "prepped_physmap7_reactions.rds", package="PackageONTOX")
 #' merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions),
 #' 'merged_physmap67_reactions')
 merge_prepped <- function(fls, oname, odir = getwd()) {
