@@ -1,4 +1,4 @@
-Package: PackageONTOX
+Package: sbtabr
 Title: Visualises and merges SBTab files
 Version: 0.0.0.9000
 Authors@R: 
@@ -23,3 +23,7 @@ Imports:
     vctrs
 Depends: 
     R (>= 2.10)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

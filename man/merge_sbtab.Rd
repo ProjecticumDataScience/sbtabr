@@ -20,9 +20,9 @@ merge_sbtab(filelist, outputname, outputdir = getwd())
 Merge multiple SBtab files into seperate dataframes per table type
 }
 \examples{
-physmap6 <- system.file("extdata", "physmap6.tsv", package="PackageONTOX")
-physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
-physmap8 <- system.file("extdata", "physmap8.tsv", package="PackageONTOX")
-physmap9 <- system.file("extdata", "physmap9.tsv", package="PackageONTOX")
+physmap6 <- system.file("extdata", "physmap6.tsv", package="sbtabr")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="sbtabr")
+physmap8 <- system.file("extdata", "physmap8.tsv", package="sbtabr")
+physmap9 <- system.file("extdata", "physmap9.tsv", package="sbtabr")
 merge_sbtab(c(physmap6, physmap7, physmap8, physmap9), 'merged_physmap6789')
 }

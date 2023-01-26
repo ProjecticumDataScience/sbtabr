@@ -1,16 +1,18 @@
 ---
-output: github_document
+title: "sbtabr-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{sbtabr-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   message = FALSE,
   warning = FALSE,
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  fig.path = "figures/"
 )
 ```
 
@@ -42,7 +44,7 @@ The package currently contains the following functions:
 
 Together they create a possible workflow as described in figure 1. 
 
-![Figure 1. The workflow and usage process of the seperate functions. Each function creates an output which can be used for another function.](man/figures/visual_workflow.jpg)
+![Figure 1. The workflow and usage process of the seperate functions. Each function creates an output which can be used for another function.](figures/visual_workflow.jpg){width='650px' fig.align='center'}
 *Figure 1. The workflow and usage process of the seperate functions. Each function creates an output which can be used for another function.*
 
 The package also contains a variety of data files:
@@ -50,7 +52,7 @@ The package also contains a variety of data files:
 ## [External data](https://github.com/ProjecticumDataScience/sbtabr/inst/extdata) 
 
 All files used as examples are stored in inst/extdata/. This includes the following:
-<ul><li> 4 .tsv files containing the original SBtab's as provided by M. Teunis from University of Applied Sciences Utrecht.</li>
+<ul><li> 4 .tsv files containing the original SBtab's as provided by University of Applied Sciences Utrecht.</li>
 <li> 3 .rds files starting with physmap6_*. These were acquired using the sep_sbtab function. </li>
 <li> 2 .rds files starting with prepped_*. These were acquired using the prep_merge function. </li>
 <li> 6 .rds files starting with merged_*. These were aquired using the merge_sbtab function. </li></ul>
@@ -114,10 +116,10 @@ sep_sbtab(physmap6, 'physmap6')
 
 After separating the SBtab file into various parts, the edges, species and compartments list will be used to generate a network graph of a single file. The function alters the data as fitting and converts it into a object suitable for the graph. The graph is pre-set with a fitting lay-out, edges that direct which way the reaction is headed, nodes that are colored based on where they are found in the cell/body and names of the involved substances. The result can be seen in figure 2. 
 
-```{r net_graph}
+```{r net_graph, eval=FALSE}
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 ```
-
+![Figure 2. A net graph where SBtab's physmap6 is visualised.](figures/net_graph-1.png){width='650px' fig.align='center'}
 *Figure 2. A net graph where SBtab's physmap6 is visualised.*
 
 ## prep_merge
@@ -151,8 +153,9 @@ merge_sbtab(c(physmap6, physmap7), 'merged_physmap67')
 
 This function is mostly similar to the net_graph function. The difference is that this function is used after merging multiple SBtab files. Therefore the edges, species and compartments lists of the merged files will be used to create a network graph of multiple files merged together. An addition to this function is that the shape of the nodes represent the original files. The result can be seen in figure 3.
 
-```{r merged_net_graph}
+```{r merged_net_graph, eval=FALSE}
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 ```
 
+![Figure 3. A net graph where SBtab's physmap6 and physmap 7 have been merged into one graph.](figures/merged_net_graph-1.png){width='650px' fig.align='center'}
 *Figure 3. A net graph where SBtab's physmap6 and physmap 7 have been merged into one graph.*

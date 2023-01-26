@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Package ONTOX
+# Package SBtabr
 
 ## For merging and visualizing SBtab files
 
@@ -12,12 +12,12 @@ Sciences in Utrecht.
 
 ## Installation
 
-The development version of PackageONTOX can be installed from
+The development version of SBtabr can be installed from
 [GitHub](https://github.com/) by using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ProjecticumDataScience/PackageONTOX")
+devtools::install_github("ProjecticumDataScience/sbtabr")
 ```
 
 # Contents
@@ -56,11 +56,13 @@ Together they create a possible workflow as described in figure 1.
 
 ![Figure 1. The workflow and usage process of the seperate functions.
 Each function creates an output which can be used for another
-function.](images/workflow_visual.jpg)
+function.](man/figures/visual_workflow.jpg) *Figure 1. The workflow and
+usage process of the seperate functions. Each function creates an output
+which can be used for another function.*
 
 The package also contains a variety of data files:
 
-## [External data](https://github.com/ProjecticumDataScience/PackageONTOX/inst/extdata)
+## [External data](https://github.com/ProjecticumDataScience/sbtabr/inst/extdata)
 
 All files used as examples are stored in inst/extdata/. This includes
 the following:
@@ -81,6 +83,7 @@ prep_merge function.
 6 .rds files starting with merged\_\*. These were aquired using the
 merge_sbtab function.
 </li>
+</ul>
 
 Aside from the files being the input and ouput for the merging
 functions, they are also used by the visualization functions as shown
@@ -88,42 +91,68 @@ below. The filepaths will be turned into values with the corresponding
 filename to keep the examples later on more clear.
 
 ``` r
-library(PackageONTOX)
+library(sbtabr)
+
+# Example files for sep_sbtab and merge_sbtab
+physmap6 <- system.file("extdata", "physmap6.tsv", package="sbtabr")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="sbtabr")
+physmap8 <- system.file("extdata", "physmap8.tsv", package="sbtabr")
+physmap9 <- system.file("extdata", "physmap9.tsv", package="sbtabr")
+
+# Example files for prep_merge
+physmap6_species <- system.file("extdata", "physmap6_species.rds", 
+                                package="sbtabr")
+
+# Example files for merge_prepped
+prepped_physmap6_reactions <- system.file("extdata",
+                                          "prepped_physmap6_reactions.rds", 
+                                          package="sbtabr")
+prepped_physmap7_reactions <- system.file("extdata",
+                                          "prepped_physmap7_reactions.rds", 
+                                          package="sbtabr")
 
 # Example files for net_graph
-physmap6_edges <- system.file("extdata", "physmap6_edges.rds", package="PackageONTOX")
-physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
-physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", package="PackageONTOX")
+physmap6_edges <- system.file("extdata", "physmap6_edges.rds", 
+                              package="sbtabr")
+physmap6_species <- system.file("extdata", "physmap6_species.rds", 
+                                package="sbtabr")
+physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", 
+                                     package="sbtabr")
 
 # Example files for merged_net_graph
 merged_physmap67_edges <- system.file("extdata",
                                       "merged_physmap67_edges.rds", 
-                                      package="PackageONTOX")
+                                      package="sbtabr")
 merged_physmap67_species <- system.file("extdata", 
                                         "merged_physmap67_species.rds", 
-                                        package="PackageONTOX")
+                                        package="sbtabr")
 merged_physmap67_compartments <- system.file("extdata",
                                              "merged_physmap67_compartments.rds", 
-                                             package="PackageONTOX")
+                                             package="sbtabr")
 ```
 
 # Functions
 
 ## sep_sbtab
 
-To be added.
+The first function in the pipeline turns one SBtab file into separate
+dataframes. An SBtab file contains multiple tables for different
+components of a network. These include the species/compounds, reactions
+and locations. To work with the components they need to be separated.
+This is where sep_sbtab comes in. It creates four dataframes as .rds
+files, the full SBtab, the species, the locations, the reactions and the
+edges. The edges are a modified version of the reactions which is
+necessary for the visualizations later on. Each file is placed into a
+folder named after the component it described.
 
-## prep_merge
+The inputs for the function consist of a filepath to the .tsv SBtab file
+and a string with the preferred outputname. An optional input is the
+outputdirectory as odir or the total amount of columns as colnum. An
+example of the function’s use is shown below.
 
-To be added.
-
-## merge_prepped
-
-To be added.
-
-## merge_sbtab
-
-To be added.
+``` r
+sep_sbtab(physmap6, 'physmap6')
+```
 
 ## net_graph
 
@@ -133,384 +162,58 @@ single file. The function alters the data as fitting and converts it
 into a object suitable for the graph. The graph is pre-set with a
 fitting lay-out, edges that direct which way the reaction is headed,
 nodes that are colored based on where they are found in the cell/body
-and names of the involved substances.
+and names of the involved substances. The result can be seen in figure
+2.
 
 ``` r
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
-## List of 94
-##  $ line                      :List of 6
-##   ..$ colour       : chr "black"
-##   ..$ linewidth    : num 0.5
-##   ..$ linetype     : num 1
-##   ..$ lineend      : chr "butt"
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_line" "element"
-##  $ rect                      :List of 5
-##   ..$ fill         : chr "white"
-##   ..$ colour       : chr "black"
-##   ..$ linewidth    : num 0.5
-##   ..$ linetype     : num 1
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
-##  $ text                      :List of 11
-##   ..$ family       : chr "sans"
-##   ..$ face         : chr "plain"
-##   ..$ colour       : chr "black"
-##   ..$ size         : num 11
-##   ..$ hjust        : num 0.5
-##   ..$ vjust        : num 0.5
-##   ..$ angle        : num 0
-##   ..$ lineheight   : num 0.9
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : logi FALSE
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ title                     : NULL
-##  $ aspect.ratio              : NULL
-##  $ axis.title                : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ axis.title.x              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 2.75points 0points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.title.x.top          :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 2.75points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.title.x.bottom       : NULL
-##  $ axis.title.y              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : num 90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 2.75points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.title.y.left         : NULL
-##  $ axis.title.y.right        :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : num -90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 0points 2.75points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.text                 : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ axis.text.x               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 2.2points 0points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.text.x.top           :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 2.2points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.text.x.bottom        : NULL
-##  $ axis.text.y               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 1
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 2.2points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.text.y.left          : NULL
-##  $ axis.text.y.right         :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 0
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 0points 2.2points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ axis.ticks                : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ axis.ticks.x              : NULL
-##  $ axis.ticks.x.top          : NULL
-##  $ axis.ticks.x.bottom       : NULL
-##  $ axis.ticks.y              : NULL
-##  $ axis.ticks.y.left         : NULL
-##  $ axis.ticks.y.right        : NULL
-##  $ axis.ticks.length         : 'simpleUnit' num 2.75points
-##   ..- attr(*, "unit")= int 8
-##  $ axis.ticks.length.x       : NULL
-##  $ axis.ticks.length.x.top   : NULL
-##  $ axis.ticks.length.x.bottom: NULL
-##  $ axis.ticks.length.y       : NULL
-##  $ axis.ticks.length.y.left  : NULL
-##  $ axis.ticks.length.y.right : NULL
-##  $ axis.line                 : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ axis.line.x               : NULL
-##  $ axis.line.x.top           : NULL
-##  $ axis.line.x.bottom        : NULL
-##  $ axis.line.y               : NULL
-##  $ axis.line.y.left          : NULL
-##  $ axis.line.y.right         : NULL
-##  $ legend.background         : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ legend.margin             : 'margin' num [1:4] 5.5points 5.5points 5.5points 5.5points
-##   ..- attr(*, "unit")= int 8
-##  $ legend.spacing            : 'simpleUnit' num 11points
-##   ..- attr(*, "unit")= int 8
-##  $ legend.spacing.x          : NULL
-##  $ legend.spacing.y          : NULL
-##  $ legend.key                : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ legend.key.size           : 'simpleUnit' num 1.2lines
-##   ..- attr(*, "unit")= int 3
-##  $ legend.key.height         : NULL
-##  $ legend.key.width          : NULL
-##  $ legend.text               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : 'rel' num 0.8
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ legend.text.align         : NULL
-##  $ legend.title              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 0
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ legend.title.align        : NULL
-##  $ legend.position           : chr "right"
-##  $ legend.direction          : NULL
-##  $ legend.justification      : chr "center"
-##  $ legend.box                : NULL
-##  $ legend.box.just           : NULL
-##  $ legend.box.margin         : 'margin' num [1:4] 0cm 0cm 0cm 0cm
-##   ..- attr(*, "unit")= int 1
-##  $ legend.box.background     : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ legend.box.spacing        : 'simpleUnit' num 11points
-##   ..- attr(*, "unit")= int 8
-##  $ panel.background          : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ panel.border              : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ panel.spacing             : 'simpleUnit' num 5.5points
-##   ..- attr(*, "unit")= int 8
-##  $ panel.spacing.x           : NULL
-##  $ panel.spacing.y           : NULL
-##  $ panel.grid                : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ panel.grid.major          : NULL
-##  $ panel.grid.minor          :List of 6
-##   ..$ colour       : NULL
-##   ..$ linewidth    : 'rel' num 0.5
-##   ..$ linetype     : NULL
-##   ..$ lineend      : NULL
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_line" "element"
-##  $ panel.grid.major.x        : NULL
-##  $ panel.grid.major.y        : NULL
-##  $ panel.grid.minor.x        : NULL
-##  $ panel.grid.minor.y        : NULL
-##  $ panel.ontop               : logi FALSE
-##  $ plot.background           :List of 5
-##   ..$ fill         : chr "white"
-##   ..$ colour       : logi NA
-##   ..$ linewidth    : NULL
-##   ..$ linetype     : NULL
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_rect" "element"
-##  $ plot.title                :List of 11
-##   ..$ family       : chr "sans"
-##   ..$ face         : chr "bold"
-##   ..$ colour       : chr "black"
-##   ..$ size         : num 18
-##   ..$ hjust        : num 0
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 10points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ plot.title.position       : chr "panel"
-##  $ plot.subtitle             :List of 11
-##   ..$ family       : chr "sans"
-##   ..$ face         : chr "plain"
-##   ..$ colour       : chr "black"
-##   ..$ size         : num 12
-##   ..$ hjust        : num 0
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 0points 0points 15points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ plot.caption              :List of 11
-##   ..$ family       : chr "sans"
-##   ..$ face         : chr "italic"
-##   ..$ colour       : chr "black"
-##   ..$ size         : num 9
-##   ..$ hjust        : num 1
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 10points 0points 0points 0points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ plot.caption.position     : chr "panel"
-##  $ plot.tag                  :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : 'rel' num 1.2
-##   ..$ hjust        : num 0.5
-##   ..$ vjust        : num 0.5
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ plot.tag.position         : chr "topleft"
-##  $ plot.margin               : 'margin' num [1:4] 30points 30points 30points 30points
-##   ..- attr(*, "unit")= int 8
-##  $ strip.background          : list()
-##   ..- attr(*, "class")= chr [1:2] "element_blank" "element"
-##  $ strip.background.x        : NULL
-##  $ strip.background.y        : NULL
-##  $ strip.clip                : chr "inherit"
-##  $ strip.placement           : chr "inside"
-##  $ strip.text                :List of 11
-##   ..$ family       : chr "sans"
-##   ..$ face         : chr "bold"
-##   ..$ colour       : chr "black"
-##   ..$ size         : num 10
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : 'margin' num [1:4] 4.4points 4.4points 4.4points 4.4points
-##   .. ..- attr(*, "unit")= int 8
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi FALSE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ strip.text.x              : NULL
-##  $ strip.text.y              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : num -90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  $ strip.switch.pad.grid     : 'simpleUnit' num 2.75points
-##   ..- attr(*, "unit")= int 8
-##  $ strip.switch.pad.wrap     : 'simpleUnit' num 2.75points
-##   ..- attr(*, "unit")= int 8
-##  $ strip.text.y.left         :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : num 90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-##  - attr(*, "class")= chr [1:2] "theme" "gg"
-##  - attr(*, "complete")= logi TRUE
-##  - attr(*, "validate")= logi TRUE
+```
+
+<img src="man/figures/README-net_graph-1.png" width="100%" />
+
+*Figure 2. A net graph where SBtab’s physmap6 is visualised.*
+
+## prep_merge
+
+In order to merge the dataframes from multiple SBtab files it is
+important to refer back to the original files. Not only for later
+reference but mostly to prevent ID’s overlapping between files. An ID
+like ‘s1’ could be given to a different compound in a different file.
+The function prep_merge must be used to prevent overlapping ID’s when
+merging. It adds the original filename to each ID.
+
+The input options for this file consist of a filepath to the .rds file
+that needs to be prepped, a string with the preferred outputname and a
+logical value to state the type of data. For the last option the choice
+is between speciesdata, edgesdata or reactionsdata. The output is a new
+.rds file. The function can be used as shown below.
+
+``` r
+prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
+```
+
+## merge_prepped
+
+After the SBtab has been seperated and the dataframes have been prepped
+for merging, they can be merged using merge_prepped. This function takes
+the prepped files and merges them into one. The inputoptions consist of
+a list of prepped .rds files to merge and a preferred outputname. An
+outputdirectory can be added using odir.
+
+``` r
+merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 
+              'merged_physmap67_reactions')
+```
+
+## merge_sbtab
+
+In order to go from SBtab files straight to the merged files, the
+merge_sbtab function combines sep_sbtab, prep_merge and merge_prepped
+into one function. The inputoptions are a list of .tsv SBtab files and a
+preferred outputname. An outputdirectory can be added using odir.
+
+``` r
+merge_sbtab(c(physmap6, physmap7), 'merged_physmap67')
 ```
 
 ## merged_net_graph
@@ -520,10 +223,13 @@ difference is that this function is used after merging multiple SBtab
 files. Therefore the edges, species and compartments lists of the merged
 files will be used to create a network graph of multiple files merged
 together. An addition to this function is that the shape of the nodes
-represent the original files.
+represent the original files. The result can be seen in figure 3.
 
 ``` r
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 ```
 
-<img src="man/figures/README-merged net graph example-1.png" width="100%" />
+<img src="man/figures/README-merged_net_graph-1.png" width="100%" />
+
+*Figure 3. A net graph where SBtab’s physmap6 and physmap 7 have been
+merged into one graph.*

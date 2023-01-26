@@ -20,8 +20,8 @@ A network graph for unmerged files
 Visualize a SBtab file made with sep_sbtab
 }
 \examples{
-physmap6_edges <- system.file("extdata", "physmap6_edges.rds", package="PackageONTOX")
-physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
-physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", package="PackageONTOX")
+physmap6_edges <- system.file("extdata", "physmap6_edges.rds", package="sbtabr")
+physmap6_species <- system.file("extdata", "physmap6_species.rds", package="sbtabr")
+physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", package="sbtabr")
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 }

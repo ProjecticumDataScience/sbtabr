@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#' physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
+#' physmap6_species <- system.file("extdata", "physmap6_species.rds", package="sbtabr")
 #' prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edgesdata = FALSE, speciesdata = FALSE) {
   # Create outputdirectory if it doesn't already exist
@@ -19,19 +19,21 @@ prep_merge <- function(fname, ogid, odir = getwd(), reactionsdata = FALSE, edges
 
   # Import the file and add a column with the original filename
   prepped <- readRDS(fname) %>% mutate(filename = ogid)
+
+  # Add the filename to the ID's
   prepped$ID <- paste0(prepped$ID, ".", ogid)
-  # Reactions files also have id's in other columns
+  ## Reactions files also have ID's in other columns
   if (reactionsdata == TRUE){
     prepped$Reactants <- paste0(prepped$Reactants, ".", ogid)
     prepped$Products <- paste0(prepped$Products, ".", ogid)
     prepped$Modifiers <- paste0(prepped$Modifiers, ".", ogid)
   }
-  # Edges files also have id's in other columns
+  ## Edges files also have ID's in other columns
   if (edgesdata == TRUE){
     prepped$Products <- paste0(prepped$Products, ".", ogid)
     prepped$Compounds <- paste0(prepped$Compounds, ".", ogid)
   }
-  # Species files also have id's in other columns
+  ## Species files also have ID's in other columns
   if (speciesdata == TRUE){
     prepped$Location <- paste0(prepped$Location, ".", ogid)
   }
