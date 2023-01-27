@@ -162,13 +162,16 @@ single file. The function alters the data as fitting and converts it
 into a object suitable for the graph. The graph is pre-set with a
 fitting lay-out, edges that direct which way the reaction is headed,
 nodes that are colored based on where they are found in the cell/body
-and names of the involved substances.
+and names of the involved substances. The result can be seen in figure
+2.
 
 ``` r
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 ```
 
 <img src="man/figures/README-net_graph-1.png" width="100%" />
+
+*Figure 2. A net graph where SBtab’s physmap6 is visualised.*
 
 ## prep_merge
 
@@ -220,10 +223,13 @@ difference is that this function is used after merging multiple SBtab
 files. Therefore the edges, species and compartments lists of the merged
 files will be used to create a network graph of multiple files merged
 together. An addition to this function is that the shape of the nodes
-represent the original files.
+represent the original files. The result can be seen in figure 3.
 
 ``` r
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 ```
 
 <img src="man/figures/README-merged_net_graph-1.png" width="100%" />
+
+*Figure 3. A net graph where SBtab’s physmap6 and physmap 7 have been
+merged into one graph.*
