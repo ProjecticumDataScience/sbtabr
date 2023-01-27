@@ -20,10 +20,10 @@
 merge_prepped <- function(fls, oname, odir = getwd()) {
   # Create outputdirectory if it doesn't already exist
   dir.create(file.path(getwd(), odir), showWarnings = FALSE)
-  # Turn the files into a list dataframes
+  # Turn the files into a list of dataframes
   dfs <- lapply(fls, readRDS)
   # Merge the dataframes
   merge <- do.call(bind_rows, dfs)
-  # Save the merged file
+  # Save the merged file in the outputdirectory
   saveRDS(merge, paste0(odir, "/", oname, ".rds"))
 }
