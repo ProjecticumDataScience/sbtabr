@@ -7,7 +7,7 @@
 sep_sbtab(fname, oname, odir = getwd(), colnum = 25)
 }
 \arguments{
-\item{fname}{A tsv file path}
+\item{fname}{A tsv file path to an SBtab file}
 
 \item{oname}{The outputname}
 
@@ -23,7 +23,7 @@ Seperate SBtab files into seperate dataframes per table
 }
 \examples{
 physmap6 <- system.file("extdata", "physmap6.tsv", package="PackageONTOX")
-physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
 sep_sbtab(physmap6, "physmap6")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
 sep_sbtab(physmap7, "physmap7")
 }
