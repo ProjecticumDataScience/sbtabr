@@ -57,7 +57,7 @@ All files used as examples are stored in inst/extdata/. This includes the follow
 
 Aside from the files being the input and ouput for the merging functions, they are also used by the visualization functions as shown below. The filepaths will be turned into values with the corresponding filename to keep the examples later on more clear.
 
-```{r assigning filepaths}
+```{r filepaths}
 library(PackageONTOX)
 
 # Example files for sep_sbtab and merge_sbtab
@@ -106,7 +106,7 @@ The first function in the pipeline turns one SBtab file into separate dataframes
 
 The inputs for the function consist of a filepath to the .tsv SBtab file and a string with the preferred outputname. An optional input is the outputdirectory as odir or the total amount of columns as colnum. An example of the function's use is shown below. 
 
-```{r sep_sbtab example, eval=FALSE}
+```{r sep_sbtab, eval=FALSE}
 sep_sbtab(physmap6, 'physmap6')
 ```
 
@@ -114,7 +114,7 @@ sep_sbtab(physmap6, 'physmap6')
 
 After separating the SBtab file into various parts, the edges, species and compartments list will be used to generate a network graph of a single file. The function alters the data as fitting and converts it into a object suitable for the graph. The graph is pre-set with a fitting lay-out, edges that direct which way the reaction is headed, nodes that are colored based on where they are found in the cell/body and names of the involved substances.
 
-```{r net graph example}
+```{r net_graph}
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 ```
 
@@ -124,7 +124,7 @@ In order to merge the dataframes from multiple SBtab files it is important to re
 
 The input options for this file consist of a filepath to the .rds file that needs to be prepped, a string with the preferred outputname and a logical value to state the type of data. For the last option the choice is between speciesdata, edgesdata or reactionsdata. The output is a new .rds file. The function can be used as shown below.
 
-```{r prep_merge example, eval=FALSE}
+```{r prep_merge, eval=FALSE}
 prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 ```
 
@@ -132,7 +132,7 @@ prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 
 After the SBtab has been seperated and the dataframes have been prepped for merging, they can be merged using merge_prepped. This function takes the prepped files and merges them into one. The inputoptions consist of a list of prepped .rds files to merge and a preferred outputname. An outputdirectory can be added using odir.
 
-```{r merge_prepped example, eval=FALSE}
+```{r merge_prepped, eval=FALSE}
 merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions), 
               'merged_physmap67_reactions')
 ```
@@ -141,7 +141,7 @@ merge_prepped(c(prepped_physmap6_reactions, prepped_physmap7_reactions),
 
 In order to go from SBtab files straight to the merged files, the merge_sbtab function combines sep_sbtab, prep_merge and merge_prepped into one function. The inputoptions are a list of .tsv SBtab files and a preferred outputname. An outputdirectory can be added using odir. 
 
-```{r merge_sbtab example, eval=FALSE}
+```{r merge_sbtab, eval=FALSE}
 merge_sbtab(c(physmap6, physmap7), 'merged_physmap67')
 ```
 
@@ -149,6 +149,6 @@ merge_sbtab(c(physmap6, physmap7), 'merged_physmap67')
 
 This function is mostly similar to the net_graph function. The difference is that this function is used after merging multiple SBtab files. Therefore the edges, species and compartments lists of the merged files will be used to create a network graph of multiple files merged together. An addition to this function is that the shape of the nodes represent the original files.
 
-```{r merged net graph example}
+```{r merged_net_graph}
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 ```

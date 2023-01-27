@@ -168,7 +168,7 @@ and names of the involved substances.
 net_graph(physmap6_edges, physmap6_species, physmap6_compartments)
 ```
 
-<img src="man/figures/README-net graph example-1.png" width="100%" />
+<img src="man/figures/README-net_graph-1.png" width="100%" />
 
 ## prep_merge
 
@@ -226,4 +226,4 @@ represent the original files.
 merged_net_graph(merged_physmap67_edges, merged_physmap67_species, merged_physmap67_compartments)
 ```
 
-<img src="man/figures/README-merged net graph example-1.png" width="100%" />
+<img src="man/figures/README-merged_net_graph-1.png" width="100%" />
