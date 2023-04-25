@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Package ONTOX
+# Package SBtabr
 
 ## For merging and visualizing SBtab files
 
@@ -12,12 +12,12 @@ Sciences in Utrecht.
 
 ## Installation
 
-The development version of PackageONTOX can be installed from
+The development version of SBtabr can be installed from
 [GitHub](https://github.com/) by using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ProjecticumDataScience/PackageONTOX")
+devtools::install_github("ProjecticumDataScience/sbtabr")
 ```
 
 # Contents
@@ -62,7 +62,7 @@ which can be used for another function.*
 
 The package also contains a variety of data files:
 
-## [External data](https://github.com/ProjecticumDataScience/PackageONTOX/inst/extdata)
+## [External data](https://github.com/ProjecticumDataScience/sbtabr/inst/extdata)
 
 All files used as examples are stored in inst/extdata/. This includes
 the following:
@@ -91,44 +91,44 @@ below. The filepaths will be turned into values with the corresponding
 filename to keep the examples later on more clear.
 
 ``` r
-library(PackageONTOX)
+library(sbtabr)
 
 # Example files for sep_sbtab and merge_sbtab
-physmap6 <- system.file("extdata", "physmap6.tsv", package="PackageONTOX")
-physmap7 <- system.file("extdata", "physmap7.tsv", package="PackageONTOX")
-physmap8 <- system.file("extdata", "physmap8.tsv", package="PackageONTOX")
-physmap9 <- system.file("extdata", "physmap9.tsv", package="PackageONTOX")
+physmap6 <- system.file("extdata", "physmap6.tsv", package="sbtabr")
+physmap7 <- system.file("extdata", "physmap7.tsv", package="sbtabr")
+physmap8 <- system.file("extdata", "physmap8.tsv", package="sbtabr")
+physmap9 <- system.file("extdata", "physmap9.tsv", package="sbtabr")
 
 # Example files for prep_merge
 physmap6_species <- system.file("extdata", "physmap6_species.rds", 
-                                package="PackageONTOX")
+                                package="sbtabr")
 
 # Example files for merge_prepped
 prepped_physmap6_reactions <- system.file("extdata",
                                           "prepped_physmap6_reactions.rds", 
-                                          package="PackageONTOX")
+                                          package="sbtabr")
 prepped_physmap7_reactions <- system.file("extdata",
                                           "prepped_physmap7_reactions.rds", 
-                                          package="PackageONTOX")
+                                          package="sbtabr")
 
 # Example files for net_graph
 physmap6_edges <- system.file("extdata", "physmap6_edges.rds", 
-                              package="PackageONTOX")
+                              package="sbtabr")
 physmap6_species <- system.file("extdata", "physmap6_species.rds", 
-                                package="PackageONTOX")
+                                package="sbtabr")
 physmap6_compartments <- system.file("extdata", "physmap6_compartments.rds", 
-                                     package="PackageONTOX")
+                                     package="sbtabr")
 
 # Example files for merged_net_graph
 merged_physmap67_edges <- system.file("extdata",
                                       "merged_physmap67_edges.rds", 
-                                      package="PackageONTOX")
+                                      package="sbtabr")
 merged_physmap67_species <- system.file("extdata", 
                                         "merged_physmap67_species.rds", 
-                                        package="PackageONTOX")
+                                        package="sbtabr")
 merged_physmap67_compartments <- system.file("extdata",
                                              "merged_physmap67_compartments.rds", 
-                                             package="PackageONTOX")
+                                             package="sbtabr")
 ```
 
 # Functions
