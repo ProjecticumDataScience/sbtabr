@@ -33,6 +33,6 @@ prep_merge(
 Prepare SBtab dataframes made with sep_sbtab for merging
 }
 \examples{
-physmap6_species <- system.file("extdata", "physmap6_species.rds", package="PackageONTOX")
+physmap6_species <- system.file("extdata", "physmap6_species.rds", package="sbtabr")
 prep_merge(physmap6_species, 'physmap6', speciesdata = TRUE)
 }
